@@ -23,6 +23,8 @@ import java.io.File;
  */
 public class UserStatsImageBrowser
 {
+    private final Browser userStatsBrowser;
+    private final BrowserView userStatsView;
     private static String userStatsScript;
 
     static
