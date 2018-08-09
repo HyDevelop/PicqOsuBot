@@ -31,4 +31,16 @@ public class UserStatsImageBrowser
     {
         userStatsScript = ResourceFileUtils.readResource(UserStatsImageBrowser.class, "js/user-stats-edits.js");
     }
+
+    public UserStatsImageBrowser()
+    {
+        // #1 Create Browser instance
+        userStatsBrowser = new Browser(BrowserType.LIGHTWEIGHT);
+
+        // userStatsBrowser.getContext().getNetworkService().setNetworkDelegate(new MobileBrowserUADelegate());
+        userStatsView = new BrowserView(userStatsBrowser);
+
+        // #2 Set the required view size
+        userStatsBrowser.setSize(400, 818);
+    }
 }
