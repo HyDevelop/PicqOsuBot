@@ -46,4 +46,10 @@ public class UserStatsImageBrowser
         // #2 Set the required view size
         userStatsBrowser.setSize(400, 818);
     }
+
+    public UserStatsImageBrowser setRunning(boolean running)
+    {
+        this.running = running;
+        return this;
+    }
 }
