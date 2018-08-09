@@ -14,3 +14,9 @@ var classToRemove =
 // 获取HTML Body
 var jQueryBody = $("body");
 var bodyHtml = jQueryBody.html();
+
+// 获取PP图表, 校正图表位置, 替换图表
+var chartHtmlString;
+var chartMatcher = regexChart.exec(bodyHtml);
+if (chartMatcher) chartHtmlString = chartMatcher[0].toString();
+bodyHtml = bodyHtml.replace(regexReplay, chartHtmlString);
