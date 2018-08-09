@@ -21,3 +21,6 @@ var chartMatcher = regexChart.exec(bodyHtml);
 if (chartMatcher) chartHtmlString = chartMatcher[0].toString();
 chartHtmlString = chartHtmlString.replace("translate(5, 5)", "translate(0, 8) scale(0.9, 0.9)");
 bodyHtml = bodyHtml.replace(regexReplay, chartHtmlString);
+
+// 添加Padding
+bodyHtml = bodyHtml.replace("<div class=\"profile-info\">", "<div class=\"profile-info\" style=\"padding-right: 40px;\">");
