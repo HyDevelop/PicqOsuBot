@@ -27,6 +27,9 @@ public class UserStatsImageBrowser
     private final BrowserView userStatsView;
     private static String userStatsScript;
 
+    @Getter
+    private boolean running = false;
+
     static
     {
         userStatsScript = ResourceFileUtils.readResource(UserStatsImageBrowser.class, "js/user-stats-edits.js");
