@@ -3,6 +3,7 @@ package cc.moecraft.icq.plugins.osubot;
 import cc.moecraft.icq.command.interfaces.IcqCommand;
 import cc.moecraft.icq.event.IcqListener;
 import cc.moecraft.icq.pluginmanager.plugin.IcqPlugin;
+import cc.moecraft.icq.plugins.osubot.browser.stats.UserStatsImageBrowserManager;
 import cc.moecraft.logger.HyLogger;
 import lombok.Getter;
 
@@ -16,12 +17,17 @@ import lombok.Getter;
  */
 public class Main extends IcqPlugin
 {
+    @Getter
+    private UserStatsImageBrowserManager userStatsImageBrowserManager;
+
 
     @Override
     public void onEnable()
     {
         // 加载插件的时候会运行这个方法
         instance = this;
+
+        initUserStatsImageUtils(getLogger());
     }
 
     @Override
@@ -29,6 +35,17 @@ public class Main extends IcqPlugin
     {
         // 卸载插件的时候会运行这个方法
     }
+    
+    public void initUserStatsImageUtils(HyLogger logger)
+    {
+        logger.timing.init();
+        logger.log("正在初始化渲染器...");
+        userStatsImageBrowserManager = new UserStatsImageBrowserManager();
+        logger.log("初始化完成! 耗时:");
+        logger.timing.time();
+        logger.timing.reset();
+    }
+
     @Override
     public IcqCommand[] commands()
     {
