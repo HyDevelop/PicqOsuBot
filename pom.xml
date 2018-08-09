@@ -46,6 +46,12 @@
             <artifactId>HyCommonUtils</artifactId>
             <version>1.2.0</version>
         </dependency>
+
+        <dependency>
+            <groupId>com.teamdev.jxbrowser</groupId>
+            <artifactId>jxbrowser-cross-platform</artifactId>
+            <version>6.9.1</version>
+        </dependency>
     </dependencies>
 
     <build>
