@@ -24,4 +24,9 @@ import java.io.File;
 public class UserStatsImageBrowser
 {
     private static String userStatsScript;
+
+    static
+    {
+        userStatsScript = ResourceFileUtils.readResource(UserStatsImageBrowser.class, "js/user-stats-edits.js");
+    }
 }
