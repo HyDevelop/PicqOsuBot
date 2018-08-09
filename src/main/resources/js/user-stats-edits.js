@@ -36,3 +36,10 @@ classToRemove.forEach(function (className)
 {
     $("." + className).remove();
 });
+
+// 获取是否Supporter, 如果是, 添加supporter标注
+var isSupporter = /"is_supporter":true/g.test(bodyHtml);
+if (isSupporter)
+{
+    $("<span class=\"profile-info__title\">osu! Supporter</span>").insertAfter(".profile-info__name")
+}
