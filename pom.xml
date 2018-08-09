@@ -19,6 +19,11 @@
             <id>jitpack.io</id>
             <url>https://jitpack.io</url>
         </repository>
+
+        <repository>
+            <id>local</id>
+            <url>file:///${basedir}/lib/maven-repository</url>
+        </repository>
     </repositories>
 
     <dependencies>
