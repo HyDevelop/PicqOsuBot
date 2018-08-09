@@ -10,3 +10,7 @@ var classToRemove =
     "supporter-icon",
     "profile-info__title"
 ];
+
+// 获取HTML Body
+var jQueryBody = $("body");
+var bodyHtml = jQueryBody.html();
