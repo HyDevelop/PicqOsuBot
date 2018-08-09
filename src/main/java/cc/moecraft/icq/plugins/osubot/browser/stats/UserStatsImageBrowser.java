@@ -47,6 +47,49 @@ public class UserStatsImageBrowser
         userStatsBrowser.setSize(400, 818);
     }
 
+    public File getUserStatsImage(long userId)
+    {
+        try
+        {
+            // #3 Load web page and wait until web page is loaded completely
+            Browser.invokeAndWaitFinishLoadingMainFrame(userStatsBrowser, browser1 -> browser1.loadURL("https://osu.ppy.sh/users/" + userId));
+
+            Thread.sleep(1500);
+
+            userStatsBrowser.executeJavaScript(userStatsScript);
+
+            Thread.sleep(1500);
+
+            // #4 Get java.awt.Image of the loaded web page.
+            LightWeightWidget lightWeightWidget = (LightWeightWidget) userStatsView.getComponent(0);
+
+            Image baseImage = lightWeightWidget.getImage();
+            BufferedImage baseBufferedImage = ImageUtils.toBufferedImage(baseImage);
+
+            // 裁剪
+            baseBufferedImage = ImageUtils.cropImage(baseBufferedImage, 0, 77, 382, 636);
+
+            // 缓存到文件
+            File file = new File("./cache/image/stats/s-cr-" + userId + "-" + System.currentTimeMillis() + ".png");
+            file.getParentFile().mkdirs();
+            ImageIO.write(baseBufferedImage, "PNG", file);
+
+            // Dispose Browser instance
+            // userStatsBrowser.dispose();
+
+            return file;
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+        finally
+        {
+            running = false;
+        }
+    }
+
     public UserStatsImageBrowser setRunning(boolean running)
     {
         this.running = running;
