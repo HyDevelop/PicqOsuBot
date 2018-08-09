@@ -24,3 +24,6 @@ bodyHtml = bodyHtml.replace(regexReplay, chartHtmlString);
 
 // 添加Padding
 bodyHtml = bodyHtml.replace("<div class=\"profile-info\">", "<div class=\"profile-info\" style=\"padding-right: 40px;\">");
+
+// 替换Body HTML
+jQueryBody.html(bodyHtml);
