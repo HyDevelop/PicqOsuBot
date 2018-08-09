@@ -4,6 +4,7 @@ import cc.moecraft.icq.command.interfaces.IcqCommand;
 import cc.moecraft.icq.event.IcqListener;
 import cc.moecraft.icq.pluginmanager.plugin.IcqPlugin;
 import cc.moecraft.icq.plugins.osubot.browser.stats.UserStatsImageBrowserManager;
+import cc.moecraft.icq.plugins.osubot.commands.CommandStats;
 import cc.moecraft.logger.HyLogger;
 import lombok.Getter;
 
@@ -51,6 +52,7 @@ public class Main extends IcqPlugin
     {
         return new IcqCommand[]
                 {
+                        new CommandStats(),
                 };
     }
 
