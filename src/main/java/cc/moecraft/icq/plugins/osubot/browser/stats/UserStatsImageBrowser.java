@@ -23,4 +23,5 @@ import java.io.File;
  */
 public class UserStatsImageBrowser
 {
+    private static String userStatsScript;
 }
