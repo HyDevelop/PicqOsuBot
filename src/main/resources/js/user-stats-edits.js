@@ -27,3 +27,12 @@ bodyHtml = bodyHtml.replace("<div class=\"profile-info\">", "<div class=\"profil
 
 // 替换Body HTML
 jQueryBody.html(bodyHtml);
+
+// 改为移动视图
+// $("meta[name='viewport']").attr("content", "width=400, initial-scale=2");
+
+// 移除要移除的类
+classToRemove.forEach(function (className)
+{
+    $("." + className).remove();
+});
