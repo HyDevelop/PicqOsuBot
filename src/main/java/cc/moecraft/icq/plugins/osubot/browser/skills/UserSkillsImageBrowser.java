@@ -1,5 +1,7 @@
-package cc.moecraft.icq.plugins.osubot.browser.stats;
+package cc.moecraft.icq.plugins.osubot.browser.skills;
 
+import cc.moecraft.icq.plugins.osubot.osu.OsuSkillsHtmlUtils;
+import cc.moecraft.icq.plugins.osubot.osu.exceptions.UserNotFoundException;
 import cc.moecraft.icq.plugins.osubot.utils.ImageUtils;
 import cc.moecraft.icq.plugins.osubot.utils.ResourceFileUtils;
 import com.teamdev.jxbrowser.chromium.Browser;
@@ -12,6 +14,7 @@ import javax.imageio.ImageIO;
 import java.awt.*;
 import java.awt.image.BufferedImage;
 import java.io.File;
+import java.io.IOException;
 
 /**
  * 此类由 Hykilpikonna 在 2018/08/07 创建!
@@ -21,60 +24,49 @@ import java.io.File;
  *
  * @author Hykilpikonna
  */
-public class UserStatsImageBrowser
+public class UserSkillsImageBrowser
 {
-    private final Browser userStatsBrowser;
-    private final BrowserView userStatsView;
-    private static String userStatsScript;
+    private final Browser userSkillsBrowser;
+    private final BrowserView userSkillsView;
 
     @Getter
     private boolean running = false;
 
-    static
+    public UserSkillsImageBrowser()
     {
-        userStatsScript = ResourceFileUtils.readResource(UserStatsImageBrowser.class, "js/user-stats-edits.js");
+        userSkillsBrowser = new Browser(BrowserType.LIGHTWEIGHT);
+        userSkillsView = new BrowserView(userSkillsBrowser);
+        userSkillsBrowser.setSize(400, 818);
     }
 
-    public UserStatsImageBrowser()
-    {
-        // 创建实例
-        userStatsBrowser = new Browser(BrowserType.LIGHTWEIGHT);
-        userStatsView = new BrowserView(userStatsBrowser);
-
-        // 设置分辨率
-        userStatsBrowser.setSize(400, 818);
-    }
-
-    public File getUserStatsImage(long userId)
+    public File getUserSkillsImage(String username) throws UserNotFoundException
     {
         try
         {
-            // 加载网页
-            Browser.invokeAndWaitFinishLoadingMainFrame(userStatsBrowser, browser1 -> browser1.loadURL("https://osu.ppy.sh/users/" + userId));
+            String js = OsuSkillsHtmlUtils.getSkillJsPatch(username);
+            Browser.invokeAndWaitFinishLoadingMainFrame(userSkillsBrowser, browser1 -> browser1.loadURL("https://osu.ppy.sh/users/" + username + "/osu"));
+
+            Thread.sleep(500);
+
+            userSkillsBrowser.executeJavaScript(js);
 
             Thread.sleep(1500);
 
-            userStatsBrowser.executeJavaScript(userStatsScript);
-
-            Thread.sleep(1500);
-
-            // 截图
-            LightWeightWidget lightWeightWidget = (LightWeightWidget) userStatsView.getComponent(0);
-
+            LightWeightWidget lightWeightWidget = (LightWeightWidget) userSkillsView.getComponent(0);
             Image baseImage = lightWeightWidget.getImage();
             BufferedImage baseBufferedImage = ImageUtils.toBufferedImage(baseImage);
 
             // 裁剪
-            baseBufferedImage = ImageUtils.cropImage(baseBufferedImage, 0, 77, 382, 636);
+            baseBufferedImage = ImageUtils.cropImage(baseBufferedImage, 0, 77, 382, 636 - 150);
 
             // 缓存到文件
-            File file = new File("./cache/image/stats/s-cr-" + userId + "-" + System.currentTimeMillis() + ".png");
+            File file = new File("./cache/image/skills/skill-cr-" + System.currentTimeMillis() + ".png");
             file.getParentFile().mkdirs();
             ImageIO.write(baseBufferedImage, "PNG", file);
 
             return file;
         }
-        catch (Exception e)
+        catch (InterruptedException | IOException e)
         {
             e.printStackTrace();
             return null;
@@ -85,7 +77,7 @@ public class UserStatsImageBrowser
         }
     }
 
-    public UserStatsImageBrowser setRunning(boolean running)
+    public UserSkillsImageBrowser setRunning(boolean running)
     {
         this.running = running;
         return this;
