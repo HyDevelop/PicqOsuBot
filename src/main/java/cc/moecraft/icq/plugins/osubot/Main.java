@@ -3,7 +3,10 @@ package cc.moecraft.icq.plugins.osubot;
 import cc.moecraft.icq.command.interfaces.IcqCommand;
 import cc.moecraft.icq.event.IcqListener;
 import cc.moecraft.icq.pluginmanager.plugin.IcqPlugin;
+import cc.moecraft.icq.plugins.osubot.browser.skills.UserSkillsImageBrowserManager;
 import cc.moecraft.icq.plugins.osubot.browser.stats.UserStatsImageBrowserManager;
+import cc.moecraft.icq.plugins.osubot.commands.CommandHelp;
+import cc.moecraft.icq.plugins.osubot.commands.CommandSkills;
 import cc.moecraft.icq.plugins.osubot.commands.CommandStats;
 import cc.moecraft.logger.HyLogger;
 import lombok.Getter;
@@ -21,6 +24,8 @@ public class Main extends IcqPlugin
     @Getter
     private UserStatsImageBrowserManager userStatsImageBrowserManager;
 
+    @Getter
+    private UserSkillsImageBrowserManager userSkillsImageBrowserManager;
 
     @Override
     public void onEnable()
@@ -42,6 +47,7 @@ public class Main extends IcqPlugin
         logger.timing.init();
         logger.log("正在初始化渲染器...");
         userStatsImageBrowserManager = new UserStatsImageBrowserManager();
+        userSkillsImageBrowserManager = new UserSkillsImageBrowserManager();
         logger.log("初始化完成! 耗时:");
         logger.timing.time();
         logger.timing.reset();
@@ -53,6 +59,8 @@ public class Main extends IcqPlugin
         return new IcqCommand[]
                 {
                         new CommandStats(),
+                        new CommandSkills(),
+                        new CommandHelp()
                 };
     }
 

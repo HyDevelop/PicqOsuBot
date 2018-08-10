@@ -37,13 +37,11 @@ public class UserStatsImageBrowser
 
     public UserStatsImageBrowser()
     {
-        // #1 Create Browser instance
+        // 创建实例
         userStatsBrowser = new Browser(BrowserType.LIGHTWEIGHT);
-
-        // userStatsBrowser.getContext().getNetworkService().setNetworkDelegate(new MobileBrowserUADelegate());
         userStatsView = new BrowserView(userStatsBrowser);
 
-        // #2 Set the required view size
+        // 设置分辨率
         userStatsBrowser.setSize(400, 818);
     }
 
@@ -51,7 +49,7 @@ public class UserStatsImageBrowser
     {
         try
         {
-            // #3 Load web page and wait until web page is loaded completely
+            // 加载网页
             Browser.invokeAndWaitFinishLoadingMainFrame(userStatsBrowser, browser1 -> browser1.loadURL("https://osu.ppy.sh/users/" + userId));
 
             Thread.sleep(1500);
@@ -60,7 +58,7 @@ public class UserStatsImageBrowser
 
             Thread.sleep(1500);
 
-            // #4 Get java.awt.Image of the loaded web page.
+            // 截图
             LightWeightWidget lightWeightWidget = (LightWeightWidget) userStatsView.getComponent(0);
 
             Image baseImage = lightWeightWidget.getImage();
@@ -73,9 +71,6 @@ public class UserStatsImageBrowser
             File file = new File("./cache/image/stats/s-cr-" + userId + "-" + System.currentTimeMillis() + ".png");
             file.getParentFile().mkdirs();
             ImageIO.write(baseBufferedImage, "PNG", file);
-
-            // Dispose Browser instance
-            // userStatsBrowser.dispose();
 
             return file;
         }
