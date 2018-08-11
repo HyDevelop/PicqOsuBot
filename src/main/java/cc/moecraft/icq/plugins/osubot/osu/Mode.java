@@ -50,6 +50,27 @@ public enum Mode
         if (Constants.lowercaseNameIndex.containsKey(name)) return Constants.lowercaseNameIndex.get(name);
         throw new ModeNotFoundException(name);
     }
+
+    /**
+     * 用数字获取模式
+     * @param code 数字
+     * @return 模式
+     */
+    public static Mode parse(int code)
+    {
+        if (code < 0 || code > 3) return null;
+        try
+        {
+            return parse(String.valueOf(code));
+        }
+        catch (ModeNotFoundException e)
+        {
+            // Never happens
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     private static class Constants
     {
         static final Map<String, Mode> lowercaseNameIndex = new HashMap<>();
