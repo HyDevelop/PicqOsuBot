@@ -23,6 +23,33 @@ import static com.github.francesco149.koohii.Koohii.*;
  */
 public class KoohiiUtils
 {
+    public static PpData calculate(long mapBid, Mode mode, Mods mods,
+                                   int combo, int n300, int n100, int n50, int nmiss,
+                                   int score_version)
+    {
+        Map map = getMap(mapBid, mode);
+        assert map != null;
+
+        DiffCalc stars = new DiffCalc().calc(map);
+
+        PPv2Parameters parameters = new PPv2Parameters();
+        parameters.beatmap = map;
+        parameters.aim_stars = stars.aim;
+        parameters.speed_stars = stars.speed;
+        parameters.mode = mode.getCode();
+        parameters.mods = (int) mods.toDec();
+        parameters.combo = combo;
+        parameters.n300 = n300;
+        parameters.n100 = n100;
+        parameters.n50 = n50;
+        parameters.nmiss = nmiss;
+        parameters.score_version = score_version;
+
+        PPv2 pp = new PPv2(parameters);
+
+        return new PpData(stars, pp, map);
+    }
+
     @Data @AllArgsConstructor
     public static class PpData
     {
