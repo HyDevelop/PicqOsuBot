@@ -74,4 +74,17 @@ public class ResourceFileUtils
         return builder.toString();
     }
     private static File cacheDir;
+
+    public static void initCache()
+    {
+        if (cacheDir != null && cacheDir.exists()) return;
+
+        cacheDir = new File(String.format("./cache/cacheDir-%s/", System.currentTimeMillis()));
+
+        if (!cacheDir.exists())
+        {
+            cacheDir.mkdirs();
+            cacheDir.deleteOnExit();
+        }
+    }
 }
