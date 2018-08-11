@@ -132,6 +132,18 @@ public abstract class OsuBrowser
         for (Object variable : variables) ReflectUtils.replaceReflectVariables(variable, html, false, true);
         return html;
     }
+
+    /**
+     * 从资源缓存HTML文件
+     * @param resourceName 资源名
+     * @param variables 变量对象
+     * @return HTML文件
+     */
+    public File cacheHtml(String resourceName, Object ... variables)
+    {
+        return cacheHtml(getHtml(resourceName, variables));
+    }
+
     /**
      * 缓存HTML文件
      * @param html html字符串
