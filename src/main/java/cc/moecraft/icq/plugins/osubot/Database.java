@@ -2,12 +2,10 @@ package cc.moecraft.icq.plugins.osubot;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
-import java.sql.Statement;
 
 /**
  * 此类由 Hykilpikonna 在 2018/08/09 创建!

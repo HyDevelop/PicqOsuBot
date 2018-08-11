@@ -1,10 +1,5 @@
 package cc.moecraft.icq.plugins.osubot.osu;
 
-import cc.moecraft.icq.plugins.osubot.osu.exceptions.UserNotFoundException;
-import org.junit.Test;
-
-import java.util.Arrays;
-
 /**
  * 此类由 Hykilpikonna 在 2018/08/08 创建!
  * Created by Hykilpikonna on 2018/08/08!
