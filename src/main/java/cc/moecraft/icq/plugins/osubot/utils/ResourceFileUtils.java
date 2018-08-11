@@ -37,7 +37,27 @@ public class ResourceFileUtils
         Files.copy(resourceAsStream, Paths.get(toFile.getAbsolutePath()));
     }
 
-    public static String readResource(Class resourceClass, String fileName, String... variablesAndReplacements)
+    /**
+     * 从缓存读一个resource
+     * @param resourceClass 带这个resource的类
+     * @param path 资源路径
+     * @return 读出来的字符串
+     */
+    public static String readResource(Class resourceClass, String path)
+    {
+        if (cachedResource.containsKey(resourceClass))
+        {
+            Map<String, String> classResourceMap = cachedResource.get(resourceClass);
+
+            if (classResourceMap.containsKey(path)) return classResourceMap.get(path);
+            else classResourceMap.put(path, readResourceWithoutCache(resourceClass, path));
+        }
+        else cachedResource.put(resourceClass, new HashMap<>());
+
+        return readResource(resourceClass, path);
+    }
+
+    private static String readResourceWithoutCache(Class resourceClass, String fileName)
     {
         StringBuilder builder = new StringBuilder();
 
