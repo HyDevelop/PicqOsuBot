@@ -105,4 +105,18 @@ public abstract class OsuBrowser
     {
         browser.executeJavaScript(js);
     }
+
+    /**
+     * 截图
+     * @param startX 起点的X
+     * @param startY 起点的Y
+     * @param endX 终点的X
+     * @param endY 终点的Y
+     * @return 截图文件
+     * @throws IOException 文件保存错误
+     */
+    public File render(int startX, int startY, int endX, int endY) throws IOException
+    {
+        return BrowserUtils.getScreenshot(view, "image/" + name() + "/img-%{ms}.png", startX, startY, endX, endY);
+    }
 }
