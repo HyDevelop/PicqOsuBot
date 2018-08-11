@@ -41,4 +41,8 @@ public class StringUtils
         return String.valueOf(result);
     }
 
+    public static String limitSize(String original, int size)
+    {
+        return original.length() <= size ? original : original.substring(0, size - 3) + "...";
+    }
 }
