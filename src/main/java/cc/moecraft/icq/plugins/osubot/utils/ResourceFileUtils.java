@@ -73,6 +73,24 @@ public class ResourceFileUtils
 
         return builder.toString();
     }
+
+    public static File getCachedResourceFile(String resource)
+    {
+        File cachedFile = new File(getCacheDir(), resource);
+
+        if (cachedFile.exists()) return cachedFile;
+        try
+        {
+            ResourceFileUtils.copyResource(Main.class, resource, cachedFile);
+            return cachedFile;
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
     private static File cacheDir;
 
     public static File getCacheDir()
