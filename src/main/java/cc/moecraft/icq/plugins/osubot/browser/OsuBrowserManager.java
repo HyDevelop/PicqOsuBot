@@ -16,6 +16,24 @@ public class OsuBrowserManager
 {
     private Map<Class<? extends OsuBrowser>, ArrayList<OsuBrowser>> browsers = new HashMap<>();
 
+    /**
+     * 获取一个浏览器
+     * @param browserClass 浏览器类
+     * @return 空闲浏览器
+     */
+    @SuppressWarnings("unchecked")
+    public <T extends OsuBrowser> T getBrowser(Class<T> browserClass)
+    {
+        if (!browsers.containsKey(browserClass)) browsers.put(browserClass, new ArrayList<>());
+
+        for (OsuBrowser browser : browsers.get(browserClass))
+        {
+            if (!browser.isRunning()) return (T) browser.setRunning(true);
+        }
+
+        return createBrowser(browserClass);
+    }
+
     private <T extends OsuBrowser> T createBrowser(Class<T> browserClass)
     {
         try
