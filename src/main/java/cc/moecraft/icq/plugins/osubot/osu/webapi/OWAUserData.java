@@ -1,4 +1,4 @@
-package cc.moecraft.icq.plugins.osubot.osu.pojo;
+package cc.moecraft.icq.plugins.osubot.osu.webapi;
 
 import com.google.gson.annotations.Expose;
 import com.google.gson.annotations.SerializedName;
@@ -9,7 +9,7 @@ import lombok.NoArgsConstructor;
 import java.util.List;
 
 @Data @AllArgsConstructor @NoArgsConstructor
-public class UserData
+public class OWAUserData
 {
     @SerializedName("id")
     @Expose
