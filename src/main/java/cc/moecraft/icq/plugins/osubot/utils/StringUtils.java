@@ -10,4 +10,20 @@ package cc.moecraft.icq.plugins.osubot.utils;
  */
 public class StringUtils
 {
+    public static String replaceVariables(String original, Object ... variablesAndReplacements)
+    {
+        StringBuilder builder = new StringBuilder();
+
+        for (String line : original.split("\n"))
+        {
+            for (int i = 0; i < variablesAndReplacements.length; i += 2)
+                line = line.replace("%{" + String.valueOf(variablesAndReplacements[i]) + "}",
+                        String.valueOf(variablesAndReplacements[i + 1]));
+
+            builder.append("\n").append(line);
+        }
+
+        return builder.toString();
+    }
+
 }
