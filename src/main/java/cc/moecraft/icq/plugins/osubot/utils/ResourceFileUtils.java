@@ -1,11 +1,15 @@
 package cc.moecraft.icq.plugins.osubot.utils;
 
-import cc.moecraft.logger.HyLogger;
-import cc.moecraft.logger.format.AnsiFormat;
+import cc.moecraft.icq.plugins.osubot.Main;
+import org.apache.commons.io.FilenameUtils;
+import org.rauschig.jarchivelib.Archiver;
+import org.rauschig.jarchivelib.ArchiverFactory;
 
 import java.io.*;
 import java.nio.file.Files;
 import java.nio.file.Paths;
+import java.util.HashMap;
+import java.util.Map;
 
 import static cc.moecraft.utils.FileUtils.createDir;
 
@@ -19,6 +23,8 @@ import static cc.moecraft.utils.FileUtils.createDir;
  */
 public class ResourceFileUtils
 {
+    private static final Map<Class, Map<String, String>> cachedResource = new HashMap<>();
+
     /**
      * 从resources导出
      * @param resourceClass 带resources的类
