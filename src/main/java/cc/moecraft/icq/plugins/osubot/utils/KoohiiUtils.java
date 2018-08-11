@@ -23,4 +23,11 @@ import static com.github.francesco149.koohii.Koohii.*;
  */
 public class KoohiiUtils
 {
+    @Data @AllArgsConstructor
+    public static class PpData
+    {
+        private DiffCalc diffCalc;
+        private PPv2 pp;
+        private Map map;
+    }
 }
