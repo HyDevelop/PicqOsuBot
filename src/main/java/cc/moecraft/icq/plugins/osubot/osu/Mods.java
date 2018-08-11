@@ -23,7 +23,7 @@ public class Mods
      * 封装构造器, 在构造之后直接添加mods
      * @param mods mods
      */
-    public Mods(Mod... mods)
+    public Mods(Mod ... mods)
     {
         this();
         add(mods);
@@ -80,7 +80,7 @@ public class Mods
      * @param mods mod
      * @return 这个实例
      */
-    public Mods add(Mod... mods)
+    public Mods add(Mod ... mods)
     {
         for (Mod oneMod : mods) add(oneMod);
         return this;
@@ -102,7 +102,7 @@ public class Mods
      * @param mods mod
      * @return 这个实例
      */
-    public Mods remove(Mod... mods)
+    public Mods remove(Mod ... mods)
     {
         for (Mod oneMod : mods) remove(oneMod);
         return this;
@@ -164,5 +164,18 @@ public class Mods
         }
 
         return result;
+    }
+
+    public String toHtml()
+    {
+        StringBuilder htmlBuilder = new StringBuilder();
+
+        for (Mod mod : toArray())
+        {
+            htmlBuilder.append("<div class=\"mods__mod\"><div class=\"mods__mod-image\"><div class=\"mod mod--%{mod}\" title=\"Hidden\"></div></div></div>"
+                    .replace("%{mod}", mod.getShortName()));
+        }
+
+        return htmlBuilder.toString();
     }
 }
