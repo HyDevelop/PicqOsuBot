@@ -26,4 +26,19 @@ public class StringUtils
         return builder.toString();
     }
 
+    public static String toReadableNumber(Object number)
+    {
+        String original = String.valueOf(number);
+        StringBuilder result = new StringBuilder();
+
+        char[] charArray = original.toCharArray();
+        for (int i = 0; i < charArray.length; i++)
+        {
+            if (i % 3 == 0 && i != 0) result.insert(0, ",");
+            result.insert(0, charArray[charArray.length - i - 1]);
+        }
+
+        return String.valueOf(result);
+    }
+
 }
