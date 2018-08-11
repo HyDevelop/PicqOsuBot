@@ -60,4 +60,15 @@ public abstract class OsuBrowser
      * @return 名字
      */
     public abstract String name();
+
+    /**
+     * 设置是否在运行
+     * @param running 是否在运行
+     * @return 这个实例
+     */
+    public OsuBrowser setRunning(boolean running)
+    {
+        this.running = running;
+        return this;
+    }
 }
