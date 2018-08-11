@@ -1,8 +1,7 @@
-package cc.moecraft.icq.plugins.osubot.osu;
+package cc.moecraft.icq.plugins.osubot.osu.webapi;
 
 import cc.moecraft.icq.plugins.osubot.osu.exceptions.JsonNotFoundException;
 import cc.moecraft.icq.plugins.osubot.osu.exceptions.UserNotFoundException;
-import cc.moecraft.icq.plugins.osubot.osu.pojo.UserData;
 import cn.hutool.http.HttpUtil;
 import com.google.gson.Gson;
 import com.google.gson.JsonElement;
@@ -19,7 +18,7 @@ import java.util.regex.Pattern;
  *
  * @author Hykilpikonna
  */
-public class OsuHtmlUtils
+public class OWAUtils
 {
     public static final Pattern patternToFindUserId = Pattern.compile("(?<=<meta http-equiv=\"refresh\" content=\"0;url=https://osu.ppy.sh/users/).*(?=\" />)");
 
@@ -76,16 +75,15 @@ public class OsuHtmlUtils
      * @return 用户数据
      * @throws UserNotFoundException 用户未找到
      */
-    public static UserData getUserData(String username) throws UserNotFoundException
+    public static OWAUserData getUserData(String username) throws UserNotFoundException
     {
         try
         {
-            return new Gson().fromJson(grepJson(getUserPageHtml(username), "user"), UserData.class);
+            return new Gson().fromJson(grepJson(getUserPageHtml(username), "user"), OWAUserData.class);
         }
         catch (JsonNotFoundException e)
         {
-            e.printStackTrace();
-            return null;
+            throw new UserNotFoundException(username, e.html);
         }
     }
 }
