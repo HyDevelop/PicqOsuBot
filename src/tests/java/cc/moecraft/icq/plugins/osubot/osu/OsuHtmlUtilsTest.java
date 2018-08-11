@@ -1,10 +1,5 @@
 package cc.moecraft.icq.plugins.osubot.osu;
 
-import cc.moecraft.icq.plugins.osubot.osu.exceptions.JsonNotFoundException;
-import cc.moecraft.icq.plugins.osubot.osu.exceptions.UserNotFoundException;
-import com.google.gson.JsonElement;
-import org.junit.Test;
-
 /**
  * 此类由 Hykilpikonna 在 2018/08/07 创建!
  * Created by Hykilpikonna on 2018/08/07!
