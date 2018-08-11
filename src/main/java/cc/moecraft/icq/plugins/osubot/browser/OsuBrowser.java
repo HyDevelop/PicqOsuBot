@@ -24,4 +24,6 @@ public abstract class OsuBrowser
 {
     @Getter
     private boolean running = false;
+    protected final Browser browser;
+    protected final BrowserView view;
 }
