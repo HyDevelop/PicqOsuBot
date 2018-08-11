@@ -73,4 +73,5 @@ public class ResourceFileUtils
 
         return builder.toString();
     }
+    private static File cacheDir;
 }
