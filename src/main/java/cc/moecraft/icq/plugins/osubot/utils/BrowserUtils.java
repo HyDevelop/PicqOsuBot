@@ -19,4 +19,23 @@ import java.io.IOException;
  */
 public class BrowserUtils
 {
+    public static File getScreenshot(BrowserView view, String fileName,
+                                     int startX, int startY, int endX, int endY) throws IOException
+    {
+        // 截图
+        LightWeightWidget lightWeightWidget = (LightWeightWidget) view.getComponent(0);
+
+        Image baseImage = lightWeightWidget.getImage();
+        BufferedImage baseBufferedImage = ImageUtils.toBufferedImage(baseImage);
+
+        // 裁剪
+        baseBufferedImage = ImageUtils.cropImage(baseBufferedImage, startX, startY, endX, endY);
+
+        // 缓存到文件
+        File file = new File(ResourceFileUtils.getCacheDir(), fileName.replace("%{ms}", String.valueOf(System.currentTimeMillis())));
+        file.getParentFile().mkdirs();
+        ImageIO.write(baseBufferedImage, "PNG", file);
+
+        return file;
+    }
 }
