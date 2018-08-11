@@ -64,15 +64,7 @@ public class ResourceFileUtils
         try (BufferedReader br = new BufferedReader(new InputStreamReader(resourceClass.getClassLoader().getResourceAsStream(fileName))))
         {
             String line;
-            while ((line = br.readLine()) != null)
-            {
-                for (int i = 0; i < variablesAndReplacements.length; i += 2)
-                {
-                    line = line.replace("%{" + variablesAndReplacements[i] + "}", variablesAndReplacements[i + 1]);
-                }
-
-                builder.append("\n").append(line);
-            }
+            while ((line = br.readLine()) != null) builder.append("\n").append(line);
         }
         catch (IOException e)
         {
