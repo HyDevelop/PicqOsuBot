@@ -23,6 +23,13 @@ import static com.github.francesco149.koohii.Koohii.*;
  */
 public class KoohiiUtils
 {
+    public static PpData calculate(Mode mode, OPAUserRecentData recentData, int scoreVersion)
+    {
+        return calculate(recentData.beatmapId, mode, new Mods(recentData.enabledMods),
+                recentData.maxCombo, recentData.getCount300Total(), recentData.getCount100Total(), recentData.count50, recentData.countMiss,
+                scoreVersion);
+    }
+
     public static PpData calculate(long mapBid, Mode mode, Mods mods,
                                    int combo, int n300, int n100, int n50, int nmiss,
                                    int score_version)
