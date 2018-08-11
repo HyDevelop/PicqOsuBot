@@ -98,4 +98,13 @@ public class ResourceFileUtils
     {
         copyResource(Main.class, resource, new File(getCacheDir(), resource));
     }
+
+    public static void cacheTarGz(String resource) throws IOException
+    {
+        File zipFile = new File(getCacheDir(), resource);
+        copyResource(Main.class, resource, zipFile);
+        Archiver archiver = ArchiverFactory.createArchiver("tar", "gz");
+        archiver.extract(zipFile, zipFile.getParentFile());
+        zipFile.delete();
+    }
 }
