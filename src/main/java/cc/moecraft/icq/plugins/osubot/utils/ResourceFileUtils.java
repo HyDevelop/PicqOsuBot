@@ -75,6 +75,12 @@ public class ResourceFileUtils
     }
     private static File cacheDir;
 
+    public static File getCacheDir()
+    {
+        if (cacheDir == null) throw new RuntimeException("缓存文件夹还没有初始化, 请先调用ResourceFileUtils.initCache()");
+        return cacheDir;
+    }
+
     public static void initCache()
     {
         if (cacheDir != null && cacheDir.exists()) return;
