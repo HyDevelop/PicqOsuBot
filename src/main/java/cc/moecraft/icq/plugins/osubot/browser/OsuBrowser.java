@@ -45,4 +45,13 @@ public abstract class OsuBrowser
     {
         Browser.invokeAndWaitFinishLoadingMainFrame(browser, browser1 -> browser1.loadURL(url));
     }
+
+    /**
+     * 加载本地文件
+     * @param file 本地文件
+     */
+    public void load(File file)
+    {
+        load(file.getAbsolutePath());
+    }
 }
