@@ -132,4 +132,24 @@ public abstract class OsuBrowser
         for (Object variable : variables) ReflectUtils.replaceReflectVariables(variable, html, false, true);
         return html;
     }
+    /**
+     * 缓存HTML文件
+     * @param html html字符串
+     * @return html文件
+     */
+    public File cacheHtml(String html)
+    {
+        File htmlFile = new File(ResourceFileUtils.getCacheDir(), "web/" + name() + "/html-%{ms}.html"
+                .replace("%{ms}", String.valueOf(System.currentTimeMillis())));
+        try
+        {
+            FileUtils.writeStringToFile(htmlFile, html, "utf-8");
+            return htmlFile;
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
