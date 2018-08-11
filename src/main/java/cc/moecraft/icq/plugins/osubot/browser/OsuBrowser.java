@@ -71,4 +71,20 @@ public abstract class OsuBrowser
         this.running = running;
         return this;
     }
+
+    /**
+     * 睡
+     * @param millis 时长 (毫秒
+     */
+    public void sleep(long millis)
+    {
+        try
+        {
+            Thread.sleep(1500);
+        }
+        catch (InterruptedException e)
+        {
+            e.printStackTrace();
+        }
+    }
 }
