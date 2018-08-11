@@ -63,6 +63,17 @@ public abstract class OsuBrowser
     {
         load(cacheHtml(html));
     }
+
+    /**
+     * 加载html
+     * @param resourceName 资源名
+     * @param variables 变量对象
+     */
+    public void loadHtml(String resourceName, Object ... variables)
+    {
+        load(cacheHtml(resourceName, variables));
+    }
+
     /**
      * 名字
      * @return 名字
