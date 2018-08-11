@@ -38,6 +38,18 @@ public enum Mode
         for (String name : alias) Constants.lowercaseNameIndex.put(name.toLowerCase(), this);
     }
 
+    /**
+     * 用名字获取模式
+     * @param name 名字
+     * @return 模式
+     * @throws ModeNotFoundException 未找到
+     */
+    public static Mode parse(String name) throws ModeNotFoundException
+    {
+        name = name.toLowerCase();
+        if (Constants.lowercaseNameIndex.containsKey(name)) return Constants.lowercaseNameIndex.get(name);
+        throw new ModeNotFoundException(name);
+    }
     private static class Constants
     {
         static final Map<String, Mode> lowercaseNameIndex = new HashMap<>();
