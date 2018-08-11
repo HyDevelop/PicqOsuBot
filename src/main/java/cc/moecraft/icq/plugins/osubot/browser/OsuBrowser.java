@@ -96,4 +96,13 @@ public abstract class OsuBrowser
     {
         execute(ResourceFileUtils.readResource(getClass(), resource));
     }
+
+    /**
+     * 直接执行js
+     * @param js js字符串
+     */
+    public void execute(String js)
+    {
+        browser.executeJavaScript(js);
+    }
 }
