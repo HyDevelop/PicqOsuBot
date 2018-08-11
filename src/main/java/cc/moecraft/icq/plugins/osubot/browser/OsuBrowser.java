@@ -54,4 +54,10 @@ public abstract class OsuBrowser
     {
         load(file.getAbsolutePath());
     }
+
+    /**
+     * 名字
+     * @return 名字
+     */
+    public abstract String name();
 }
