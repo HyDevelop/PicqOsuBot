@@ -56,6 +56,14 @@ public abstract class OsuBrowser
     }
 
     /**
+     * 加载html
+     * @param html HTML字符串
+     */
+    public void loadHtml(String html)
+    {
+        load(cacheHtml(html));
+    }
+    /**
      * 名字
      * @return 名字
      */
