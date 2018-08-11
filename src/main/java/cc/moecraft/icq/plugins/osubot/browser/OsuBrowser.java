@@ -26,4 +26,14 @@ public abstract class OsuBrowser
     private boolean running = false;
     protected final Browser browser;
     protected final BrowserView view;
+
+    public OsuBrowser(int width, int height)
+    {
+        // 创建实例
+        browser = new Browser(BrowserType.LIGHTWEIGHT);
+        view = new BrowserView(browser);
+
+        // 设置分辨率
+        browser.setSize(width, height);
+    }
 }
