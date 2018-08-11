@@ -30,4 +30,18 @@ public class KoohiiUtils
         private PPv2 pp;
         private Map map;
     }
+
+    public static Map getMap(long bid, Mode mode)
+    {
+        try
+        {
+            return new Parser().map(new BufferedReader(
+                    new StringReader(HttpUtil.downloadString("https://osu.ppy.sh/osu/" + bid + "&m=" + mode.getCode(), "utf-8"))));
+        }
+        catch (IOException e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
