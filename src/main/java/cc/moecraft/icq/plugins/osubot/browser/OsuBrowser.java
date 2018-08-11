@@ -87,4 +87,13 @@ public abstract class OsuBrowser
             e.printStackTrace();
         }
     }
+
+    /**
+     * 从资源执行js
+     * @param resource 资源
+     */
+    public void executeFromResource(String resource)
+    {
+        execute(ResourceFileUtils.readResource(getClass(), resource));
+    }
 }
