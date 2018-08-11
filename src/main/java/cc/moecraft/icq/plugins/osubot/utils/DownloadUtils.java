@@ -4,7 +4,6 @@ import com.google.gson.JsonElement;
 import com.google.gson.JsonParser;
 import com.xiaoleilu.hutool.http.HttpUtil;
 
-import java.net.MalformedURLException;
 import java.nio.charset.Charset;
 
 /**
@@ -23,10 +22,10 @@ public class DownloadUtils
      * 从URL获取JSON对象
      *
      * @param url URL
+     * @param charset 字符集
      * @return JSON对象
-     * @exception MalformedURLException URL解析失败
      */
-    public static JsonElement getJsonElementFromURL(String url, String charset) throws MalformedURLException
+    public static JsonElement getJsonElementFromURL(String url, String charset)
     {
         return new JsonParser().parse(downloadAsString(url, charset));
     }
