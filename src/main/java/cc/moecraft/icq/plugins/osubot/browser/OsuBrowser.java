@@ -119,4 +119,17 @@ public abstract class OsuBrowser
     {
         return BrowserUtils.getScreenshot(view, "image/" + name() + "/img-%{ms}.png", startX, startY, endX, endY);
     }
+
+    /**
+     * 从资源获取HTML
+     * @param resourceName 资源名
+     * @param variables 变量对象
+     * @return HTML字符串
+     */
+    public String getHtml(String resourceName, Object ... variables)
+    {
+        String html = ResourceFileUtils.readResource(getClass(), resourceName);
+        for (Object variable : variables) ReflectUtils.replaceReflectVariables(variable, html, false, true);
+        return html;
+    }
 }
