@@ -15,4 +15,19 @@ import java.util.Map;
 public class OsuBrowserManager
 {
     private Map<Class<? extends OsuBrowser>, ArrayList<OsuBrowser>> browsers = new HashMap<>();
+
+    private <T extends OsuBrowser> T createBrowser(Class<T> browserClass)
+    {
+        try
+        {
+            T browser = browserClass.newInstance();
+            browsers.get(browserClass).add(browser);
+            return browser;
+        }
+        catch (InstantiationException | IllegalAccessException e)
+        {
+            e.printStackTrace();
+            return null;
+        }
+    }
 }
