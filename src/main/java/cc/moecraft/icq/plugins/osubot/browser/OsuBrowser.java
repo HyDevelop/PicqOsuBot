@@ -36,4 +36,13 @@ public abstract class OsuBrowser
         // 设置分辨率
         browser.setSize(width, height);
     }
+
+    /**
+     * 加载URL
+     * @param url URL
+     */
+    public void load(String url)
+    {
+        Browser.invokeAndWaitFinishLoadingMainFrame(browser, browser1 -> browser1.loadURL(url));
+    }
 }
