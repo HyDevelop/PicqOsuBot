@@ -93,4 +93,9 @@ public class ResourceFileUtils
             cacheDir.deleteOnExit();
         }
     }
+
+    public static void cacheFile(String resource) throws IOException
+    {
+        copyResource(Main.class, resource, new File(getCacheDir(), resource));
+    }
 }
