@@ -80,14 +80,4 @@ public class OPAUserRecentData extends OPADataBase
     {
         return OPAWrapper.getAcc(mode, count300, count100, count50, countMiss, countKatu, countGeki);
     }
-
-    public int getCount300Total()
-    {
-        return count300 + countGeki;
-    }
-
-    public int getCount100Total()
-    {
-        return count100 + countKatu;
-    }
 }
