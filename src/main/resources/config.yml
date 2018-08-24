@@ -1,1 +1,7 @@
 APIKey: '-INSERT API KEY HERE-'
+Database-MySQL:
+  Host: '-INSERT HOST URL HERE-'
+  Port: -INSERT PORT HERE-
+  Database: '-INSERT DATABASE NAME HERE'
+  Username: '-INSERT USERNAME HERE-'
+  Password: '-INSERT PASSWORD HERE-'
