@@ -1,13 +1,11 @@
 package cc.moecraft.icq.plugins.osubot.osu;
 
-import cc.moecraft.icq.plugins.osubot.browser.skills.UserSkillsImageBrowser;
+import cc.moecraft.icq.plugins.osubot.browser.browsers.SkillsBrowser;
 import cc.moecraft.icq.plugins.osubot.osu.exceptions.UserNotFoundException;
 import cc.moecraft.icq.plugins.osubot.utils.ResourceFileUtils;
-import cc.moecraft.logger.text.Paragraph;
-import cn.hutool.Hutool;
+import cc.moecraft.icq.plugins.osubot.utils.StringUtils;
 import cn.hutool.http.HttpUtil;
 
-import java.util.ArrayList;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -61,7 +59,7 @@ public class OsuSkillsHtmlUtils
         int[] skills = OsuSkillsHtmlUtils.getSkillLevels(username);
         int[] skillsPercent = OsuSkillsHtmlUtils.getPercentage(skills);
 
-        return ResourceFileUtils.readResource(UserSkillsImageBrowser.class, "js/user-skills-edits.js", "temp", "temp",
+        return StringUtils.replaceVariables(ResourceFileUtils.readResource(SkillsBrowser.class, "js/user-skills-edits.js"), "temp", "temp",
                 "1", String.valueOf(skills[0]),
                 "2", String.valueOf(skills[1]),
                 "3", String.valueOf(skills[2]),
@@ -79,7 +77,6 @@ public class OsuSkillsHtmlUtils
                 "3star", skillsPercent[2] == 80 ? " bar--beatmap-stats-stars" : "",
                 "4star", skillsPercent[3] == 80 ? " bar--beatmap-stats-stars" : "",
                 "5star", skillsPercent[4] == 80 ? " bar--beatmap-stats-stars" : "",
-                "6star", skillsPercent[5] == 80 ? " bar--beatmap-stats-stars" : ""
-        );
+                "6star", skillsPercent[5] == 80 ? " bar--beatmap-stats-stars" : "");
     }
 }

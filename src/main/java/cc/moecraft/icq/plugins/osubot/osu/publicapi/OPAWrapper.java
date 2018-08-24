@@ -1,18 +1,13 @@
 package cc.moecraft.icq.plugins.osubot.osu.publicapi;
 
-import cc.moecraft.icq.plugins.osubot.osu.publicapi.data.OPABeatmapData;
-import cc.moecraft.icq.plugins.osubot.osu.publicapi.data.OPAUserBestData;
-import cc.moecraft.icq.plugins.osubot.osu.publicapi.data.OPAUserRecentData;
-import cc.moecraft.icq.plugins.osubot.osu.publicapi.data.OPAUserScoreData;
-import cc.moecraft.icq.plugins.osubot.osu.publicapi.parameters.OPABeatmapParams;
-import cc.moecraft.icq.plugins.osubot.osu.publicapi.parameters.OPAUserBestParams;
-import cc.moecraft.icq.plugins.osubot.osu.publicapi.parameters.OPAUserRecentParams;
-import cc.moecraft.icq.plugins.osubot.osu.publicapi.parameters.OPAUserScoreParams;
+import cc.moecraft.icq.plugins.osubot.osu.publicapi.data.*;
+import cc.moecraft.icq.plugins.osubot.osu.publicapi.parameters.*;
 import cc.moecraft.icq.plugins.osubot.osu.exceptions.BeatmapScoreNotEnoughException;
 import cc.moecraft.icq.plugins.osubot.osu.exceptions.JsonEmptyException;
 import cc.moecraft.icq.plugins.osubot.osu.exceptions.RecentScoreNotEnoughException;
 import lombok.AllArgsConstructor;
 
+import javax.swing.text.html.parser.Parser;
 import java.util.ArrayList;
 
 /**
@@ -28,6 +23,7 @@ import java.util.ArrayList;
 @AllArgsConstructor
 public class OPAWrapper
 {
+
     // 谱面
 
     /**
