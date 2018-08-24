@@ -5,3 +5,8 @@ Database-MySQL:
   Database: '-INSERT DATABASE NAME HERE'
   Username: '-INSERT USERNAME HERE-'
   Password: '-INSERT PASSWORD HERE-'
+IRC:
+  Host: 'irc.ppy.sh'
+  Port: 6667
+  Username: '-INSERT USERNAME HERE-'
+  Password: '-INSERT PASSWORD HERE-'
