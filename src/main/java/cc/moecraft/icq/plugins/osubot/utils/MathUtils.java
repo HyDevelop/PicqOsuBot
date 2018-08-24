@@ -1,5 +1,7 @@
 package cc.moecraft.icq.plugins.osubot.utils;
 
+import java.util.Random;
+
 /**
  * 此类由 Hykilpikonna 在 2018/08/11 创建!
  * Created by Hykilpikonna on 2018/08/11!
@@ -20,5 +22,10 @@ public class MathUtils
     {
         double scale = Math.pow(10d, decimals);
         return Math.round(original * scale) / scale;
+    }
+
+    public static int getRandom(int start, int end)
+    {
+        return new Random().nextInt(end) + start;
     }
 }
