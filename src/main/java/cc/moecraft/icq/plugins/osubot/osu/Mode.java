@@ -75,4 +75,10 @@ public enum Mode
     {
         static final Map<String, Mode> lowercaseNameIndex = new HashMap<>();
     }
+
+    @Override
+    public String toString()
+    {
+        return getName();
+    }
 }
