@@ -1,4 +1,4 @@
-package cc.moecraft.icq.plugins.osubot.commands;
+package cc.moecraft.icq.plugins.osubot.commands.osu;
 
 import cc.moecraft.icq.command.CommandProperties;
 import cc.moecraft.icq.command.interfaces.EverywhereCommand;
@@ -26,7 +26,7 @@ public class CommandHelp implements EverywhereCommand
     public String run(EventMessage eventMessage, User user, String s, ArrayList<String> arrayList)
     {
         Main.getInstance().getLogger().log("HELP - 用户 " + user.getInfo().getNickname() + " 查询了帮助.");
-        File helpFile = ResourceFileUtils.getCachedResourceFile("help/Ver1-crop.jpg");
+        File helpFile = ResourceFileUtils.getCachedResourceFile("help/Ver1.2-crop.jpg");
         if (helpFile == null) return null;
         return new ComponentImage("file://" + helpFile.getAbsolutePath()).toString();
     }
