@@ -27,7 +27,7 @@ import java.util.concurrent.TimeoutException;
 @RequiredArgsConstructor
 public abstract class OsuCommandBase implements EverywhereCommand
 {
-    private static final boolean pmOnly = true;
+    private static final boolean pmOnly = false;
     private final int minArgsSize;
     private final String name;
 

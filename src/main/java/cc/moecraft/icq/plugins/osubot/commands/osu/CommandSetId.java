@@ -9,7 +9,7 @@ import cc.moecraft.icq.plugins.osubot.osu.exceptions.UserNotFoundException;
 import cc.moecraft.icq.plugins.osubot.osu.publicapi.data.OPAUserData;
 import cc.moecraft.icq.plugins.osubot.osu.webapi.OWAUserData;
 import cc.moecraft.icq.plugins.osubot.osu.webapi.OWAUtils;
-import cc.moecraft.icq.plugins.osubot.utils.MathUtils;
+import cc.moecraft.utils.MathUtils;
 import cc.moecraft.icq.plugins.permissions.Permissions;
 import cc.moecraft.icq.sender.message.MessageBuilder;
 import cc.moecraft.icq.user.User;
