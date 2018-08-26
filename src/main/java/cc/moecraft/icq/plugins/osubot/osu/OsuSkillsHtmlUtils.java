@@ -3,7 +3,7 @@ package cc.moecraft.icq.plugins.osubot.osu;
 import cc.moecraft.icq.plugins.osubot.browser.browsers.SkillsBrowser;
 import cc.moecraft.icq.plugins.osubot.osu.exceptions.UserNotFoundException;
 import cc.moecraft.icq.plugins.osubot.utils.ResourceFileUtils;
-import cc.moecraft.icq.plugins.osubot.utils.StringUtils;
+import cc.moecraft.utils.StringUtils;
 import cn.hutool.http.HttpUtil;
 
 import java.util.regex.Matcher;
