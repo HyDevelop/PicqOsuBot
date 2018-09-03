@@ -55,6 +55,7 @@ public class CommandVerify extends OsuCommandBase
         // 10秒冷却
         if (!qqTimeMap.containsKey(user.getId())) qqTimeMap.put(user.getId(), currentTime);
         else if (currentTime - qqTimeMap.get(user.getId()) < 10 * 1000) return null;
+        if (!userSettings.getVerificationCode().equals(verificationCodeFromUser)) return Messages.invalidVerificationCode();
     }
 
     @Override
