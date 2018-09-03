@@ -8,6 +8,7 @@ import cc.moecraft.icq.plugins.osubot.Main;
 import cc.moecraft.icq.plugins.osubot.osu.exceptions.UserNotFoundException;
 import cc.moecraft.icq.sender.message.components.ComponentImage;
 import cc.moecraft.icq.user.User;
+import cc.moecraft.utils.ArrayUtils;
 import cn.hutool.http.HttpException;
 import lombok.RequiredArgsConstructor;
 
