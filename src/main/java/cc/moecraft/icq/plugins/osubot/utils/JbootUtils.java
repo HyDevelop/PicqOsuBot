@@ -50,4 +50,9 @@ public class JbootUtils
         // 用Jboot的配置文件调用
         configJFinal.invoke(null, new JbootAppConfig());
     }
+
+    public static void setDevMode(boolean devMode)
+    {
+        JFinal.me().getConstants().setDevMode(devMode);
+    }
 }
