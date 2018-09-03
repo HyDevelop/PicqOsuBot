@@ -147,5 +147,12 @@ public class CommandSetId extends OsuCommandBase
                     .add("为了安全, 请重新").add(command).add(".")
                     .toString();
         }
+
+        private static String requestNotFound(String command)
+        {
+            return new MessageBuilder()
+                    .add("还没有").add(command).add(", 打算怎么confirm呢?")
+                    .toString();
+        }
     }
 }
