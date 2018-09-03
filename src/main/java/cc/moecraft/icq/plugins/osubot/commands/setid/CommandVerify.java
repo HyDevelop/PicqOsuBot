@@ -55,4 +55,8 @@ public class CommandVerify extends OsuCommandBase
     {
         return new CommandProperties("verify");
     }
+
+    private static class Messages
+    {
+    }
 }
