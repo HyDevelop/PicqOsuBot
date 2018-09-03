@@ -51,6 +51,10 @@ public class CommandVerify extends OsuCommandBase
         if (userSettings == null) return Messages.notRequested();
         if (userSettings.getVerificationState().equals(VerificationStates.VERIFIED)) return Messages.alreadyVerified();
         if (!CommandSetId.isTimeValid(userSettings)) return Messages.timeout();
+
+        // 10秒冷却
+        if (!qqTimeMap.containsKey(user.getId())) qqTimeMap.put(user.getId(), currentTime);
+        else if (currentTime - qqTimeMap.get(user.getId()) < 10 * 1000) return null;
     }
 
     @Override
