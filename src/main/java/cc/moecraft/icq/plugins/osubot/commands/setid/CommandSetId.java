@@ -36,6 +36,8 @@ import static cc.moecraft.icq.plugins.osubot.Main.CONTACT_INFO;
  */
 public class CommandSetId extends OsuCommandBase
 {
+    private Map<Long, PendingDataSet> confirmMap = new HashMap<>();
+
     public CommandSetId()
     {
         super(1, "setid");
