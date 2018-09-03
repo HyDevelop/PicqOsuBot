@@ -74,6 +74,13 @@ public class CommandSetId extends OsuCommandBase
                 if (isTimeValid(osuIdUserSettings)) return Messages.requestedAndValidTime();
                 return Messages.requestedButInvalidTime(osuIdUserSettings, command);
             }
+
+            // 验证数据库内是否已存在QQ id
+            HoUserSettings qqIdUserSettings = ServiceInstanceManager.get(HoUserSettingsServiceImpl.class).findByQq(user.getId());
+            if (qqIdUserSettings != null)
+            {
+                return Messages.qqIdAlreadyVerified(qqIdUserSettings);
+            }
         }
     }
 
