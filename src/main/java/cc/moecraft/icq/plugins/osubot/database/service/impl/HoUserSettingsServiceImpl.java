@@ -1,8 +1,8 @@
 package cc.moecraft.icq.plugins.osubot.database.service.impl;
 
-import io.jboot.aop.annotation.Bean;
-import cc.moecraft.icq.plugins.osubot.database.service.HoUserSettingsService;
 import cc.moecraft.icq.plugins.osubot.database.model.HoUserSettings;
+import cc.moecraft.icq.plugins.osubot.database.service.HoUserSettingsService;
+import io.jboot.aop.annotation.Bean;
 import io.jboot.service.JbootServiceBase;
 
 import javax.inject.Singleton;

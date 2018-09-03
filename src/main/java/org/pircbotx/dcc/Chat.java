@@ -17,7 +17,6 @@
  */
 package org.pircbotx.dcc;
 
-import cc.moecraft.icq.plugins.osubot.Main;
 import lombok.Getter;
 import lombok.extern.slf4j.Slf4j;
 import org.pircbotx.User;

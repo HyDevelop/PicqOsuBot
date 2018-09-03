@@ -1,6 +1,5 @@
 package cc.moecraft.icq.plugins.osubot.utils;
 
-import cc.moecraft.icq.plugins.osubot.osu.Koohii;
 import cc.moecraft.icq.plugins.osubot.osu.Mode;
 import cc.moecraft.icq.plugins.osubot.osu.Mods;
 import cc.moecraft.icq.plugins.osubot.osu.exceptions.UnsupportedModeException;
@@ -12,7 +11,6 @@ import lombok.Data;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.StringReader;
-import java.io.UnsupportedEncodingException;
 
 import static cc.moecraft.icq.plugins.osubot.osu.Koohii.*;
 

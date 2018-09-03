@@ -1,9 +1,9 @@
 package cc.moecraft.icq.plugins.osubot.osu;
 
-import java.util.ArrayList;
-import java.util.Collections;
 import java.io.BufferedReader;
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.Collections;
 
 /**
 * pure java implementation of github.com/Francesco149/oppai-ng .
