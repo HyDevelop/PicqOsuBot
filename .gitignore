@@ -4,3 +4,4 @@ target/*
 IcqPluginTemplate.iml
 image*.*
 src/tests/java/ignored/TestIRC.java
+src/main/resources/jboot.properties
