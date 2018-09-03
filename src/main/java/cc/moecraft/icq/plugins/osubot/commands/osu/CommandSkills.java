@@ -25,19 +25,20 @@ public class CommandSkills extends OsuCommandBase
 {
     public CommandSkills()
     {
-        super(1, "skill");
+        super(0, "skill");
     }
 
     @Override
-    public String runOsu(EventMessage event, User user, String command, ArrayList<String> arrayList) throws IOException, UserNotFoundException
+    public String runOsu(EventMessage event, User user, String command, ArrayList<String> args) throws Exception
     {
-        event.respond("正在查询能力评分... 请稍后ww");
         long startTime = System.currentTimeMillis();
 
-        String username = ArrayUtils.getTheRestArgsAsString(arrayList, 0);
-        File imageFile = Main.getBrowserManager().getBrowser(SkillsBrowser.class).render(username);
+        String username = getDatabasedUsername(args, 0, user);
+        event.respond("正在查询能力评分... 请稍后ww");
 
+        File imageFile = Main.getBrowserManager().getBrowser(SkillsBrowser.class).render(username);
         logComplete(user.getInfo().getNickname(), username, startTime);
+
         return getImageMessage(imageFile);
     }
 

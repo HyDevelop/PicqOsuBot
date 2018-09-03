@@ -28,26 +28,32 @@ public class CommandRecent extends OsuCommandBase
 {
     public CommandRecent()
     {
-        super(1, "recent");
+        super(0, "recent");
     }
 
     @Override
-    public String runOsu(EventMessage event, User user, String command, ArrayList<String> args) throws UserNotFoundException, HttpException, IOException
+    public String runOsu(EventMessage event, User user, String command, ArrayList<String> args) throws Exception
     {
         try
         {
-            event.respond("正在查询最近成绩... 请稍后ww");
             long startTime = System.currentTimeMillis();
 
-            String username = ArrayUtils.getTheRestArgsAsString(args, 0);
-            File imageFile = Main.getBrowserManager().getBrowser(RecentBrowser.class).render(username);
+            String username = getDatabasedUsername(args, 0, user);
+            event.respond("正在查询最近成绩... 请稍后ww");
 
+            File imageFile = Main.getBrowserManager().getBrowser(RecentBrowser.class).render(username);
             logComplete(user.getInfo().getNickname(), username, startTime);
+
             return getImageMessage(imageFile);
         }
         catch (RecentScoreNotEnoughException e)
         {
             return "你的最近成绩不够哦ww 快去打图!!";
+        }
+        catch (RuntimeException e)
+        {
+            if (e.getCause() instanceof UnsupportedModeException) throw ((UnsupportedModeException) e.getCause());
+            throw e;
         }
         catch (UnsupportedModeException e)
         {
