@@ -62,6 +62,9 @@ public class CommandSetId extends OsuCommandBase
         }
         else
         {
+            // 获取QQ上用户提供的信息
+            String username = ArrayUtils.getTheRestArgsAsString(args, 0);
+            OWAUserData userData = OWAUtils.getUserData(username);
 
         }
     }
