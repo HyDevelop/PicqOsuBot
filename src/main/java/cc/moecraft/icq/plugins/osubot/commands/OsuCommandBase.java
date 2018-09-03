@@ -47,6 +47,14 @@ public abstract class OsuCommandBase implements EverywhereCommand
         {
             return runOsu(event, user, command, args);
         }
+        catch (GetIDException e)
+        {
+            switch (e.getOperation())
+            {
+                case SEND_HELP: return help(command);
+                default: return "喵w?";
+            }
+        }
         catch (UserNotFoundException e)
         {
             return "未找到用户: " + e.requestedUserIndicator.replace("%20", " ");
@@ -54,17 +62,21 @@ public abstract class OsuCommandBase implements EverywhereCommand
         catch (HttpException | IOException e)
         {
             e.printStackTrace();
-            return "查询失败, 网络访问异常... 请重试w";
+            return "执行失败, 网络访问异常... 请重试w";
         }
         catch (RuntimeException e)
         {
-            if (e.getCause() instanceof TimeoutException) return "查询失败, 网络连接超时... 请重试w";
+            if (e.getCause() instanceof TimeoutException) return "执行失败, 网络连接超时... 请重试w";
             throw e;
+        }
+        catch (Exception e)
+        {
+            return "执行失败: " + e.getLocalizedMessage();
         }
     }
 
     public abstract String runOsu(EventMessage event, User user, String command, ArrayList<String> args)
-            throws UserNotFoundException, HttpException, IOException;
+            throws Exception;
 
     public abstract String help(String command);
 
