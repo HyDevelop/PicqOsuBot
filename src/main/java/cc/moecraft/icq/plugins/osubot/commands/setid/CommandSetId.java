@@ -139,5 +139,13 @@ public class CommandSetId extends OsuCommandBase
         {
             return verificationCode + " _(:з」∠)_";
         }
+
+        private static String confirmTimeInvalid(String command)
+        {
+            return new MessageBuilder()
+                    .add("confirm时间超过两分钟啦_(:з」∠)_").newLine()
+                    .add("为了安全, 请重新").add(command).add(".")
+                    .toString();
+        }
     }
 }
