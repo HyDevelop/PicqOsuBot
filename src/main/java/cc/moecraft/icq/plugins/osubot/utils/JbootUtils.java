@@ -22,6 +22,22 @@ import java.util.ArrayList;
  */
 public class JbootUtils
 {
+    /**
+     * 初始化JFinal.
+     * 用这个方法初始化之后就可以不用启动HTTP服务器的情况下调用数据库啦!
+     */
+    public static void initializeJFinalSafe()
+    {
+        try
+        {
+            initializeJFinal();
+        }
+        catch (ClassNotFoundException | NoSuchMethodException | IllegalAccessException | InvocationTargetException e)
+        {
+            throw new RuntimeException(e);
+        }
+    }
+
     public static void initializeJFinal() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException
     {
         // 找到JFinal的Config类的configJfinal(JFinalConfig jfinalConfig)方法
