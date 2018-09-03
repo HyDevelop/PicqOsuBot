@@ -61,7 +61,8 @@ public class ResourceFileUtils
     {
         StringBuilder builder = new StringBuilder();
 
-        try (BufferedReader br = new BufferedReader(new InputStreamReader(resourceClass.getClassLoader().getResourceAsStream(fileName))))
+        try (BufferedReader br = new BufferedReader(new InputStreamReader(
+                resourceClass.getClassLoader().getResourceAsStream(fileName), "utf-8")))
         {
             String line;
             while ((line = br.readLine()) != null) builder.append("\n").append(line);
