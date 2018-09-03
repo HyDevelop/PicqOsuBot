@@ -1,6 +1,5 @@
-package cc.moecraft.icq.plugins.osubot.commands.managing;
+package cc.moecraft.icq.plugins.osubot.commands.irc;
 
-import cc.moecraft.icq.PicqBotX;
 import cc.moecraft.icq.command.CommandProperties;
 import cc.moecraft.icq.command.interfaces.EverywhereCommand;
 import cc.moecraft.icq.event.events.message.EventMessage;

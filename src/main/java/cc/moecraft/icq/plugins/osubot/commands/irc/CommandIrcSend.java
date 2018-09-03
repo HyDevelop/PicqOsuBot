@@ -1,4 +1,4 @@
-package cc.moecraft.icq.plugins.osubot.commands.managing;
+package cc.moecraft.icq.plugins.osubot.commands.irc;
 
 import cc.moecraft.icq.command.CommandProperties;
 import cc.moecraft.icq.command.interfaces.EverywhereCommand;
