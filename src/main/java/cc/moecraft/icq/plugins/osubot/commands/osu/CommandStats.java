@@ -27,21 +27,23 @@ public class CommandStats extends OsuCommandBase
 {
     public CommandStats()
     {
-        super(1, "stats");
+        super(0, "stats");
     }
 
     @Override
-    public String runOsu(EventMessage event, User user, String command, ArrayList<String> args) throws UserNotFoundException, IOException
+    public String runOsu(EventMessage event, User user, String command, ArrayList<String> args) throws Exception
     {
-        event.respond("正在查询... 请稍后ww");
         long startTime = System.currentTimeMillis();
 
-        String username = ArrayUtils.getTheRestArgsAsString(args, 0);
+        String username = getDatabasedUsername(args, 0, user);
+        event.respond("正在查询... 请稍后ww");
+
         OWAUserData userData = OWAUtils.getUserData(username);
         Long userId = userData.getId();
 
         File imageFile = Main.getBrowserManager().getBrowser(StatsBrowser.class).render(userId);
         logComplete(user.getInfo().getNickname(), username, startTime);
+
         return getImageMessage(imageFile);
     }
 
