@@ -20,6 +20,12 @@ public class JbootDBTest
 {
     public static void main(String[] args) throws NoSuchMethodException, InvocationTargetException, IllegalAccessException, ClassNotFoundException
     {
+        long time = System.currentTimeMillis();
+        JbootUtils.initializeJFinal();
+        JbootUtils.setDevMode(false);
+        JbootUtils.disableSqlReport();
+        System.out.println(System.currentTimeMillis() - time + "ms");
+
         HoUserSettingsService service = ServiceInstanceManager.get(HoUserSettingsServiceImpl.class);
         //System.out.println(service.findByOsu(5093373));
         //System.out.println(service.findByQq(565656));
