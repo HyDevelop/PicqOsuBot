@@ -36,6 +36,7 @@ public class RecentBrowser extends OsuBrowser
     {
         try
         {
+            username = username.replace(" ", "%20");
             OWAUserData userData = OWAUtils.getUserData(username);
             OPAUserRecentData recentData = OPAWrapper.getRecent(username, 1, Mode.parse(userData.getPlaymode()).getCode());
             OPABeatmapData beatmapData = OPAWrapper.getBeatmap(recentData);
