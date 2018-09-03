@@ -46,6 +46,9 @@ public class CommandVerify extends OsuCommandBase
         String verificationCodeFromUser = ArrayUtils.getTheRestArgsAsString(args, 0);
         if (verificationCodeFromUser.length() != 8) return Messages.invalidLength(verificationCodeFromUser);
 
+        // 获取数据库对象
+        HoUserSettings userSettings = ServiceInstanceManager.get(HoUserSettingsServiceImpl.class).findByQq(user.getId());
+        if (userSettings == null) return Messages.notRequested();
     }
 
     @Override
