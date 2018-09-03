@@ -160,4 +160,9 @@ public class CommandSetId extends OsuCommandBase
     {
         return System.currentTimeMillis() - userSettings.getVerificationTime() < 30 * 60 * 1000;
     }
+
+    private static boolean isConfirmTimeValid(PendingDataSet dataSet)
+    {
+        return System.currentTimeMillis() - dataSet.startTime < 120 * 1000;
+    }
 }
