@@ -134,5 +134,10 @@ public class CommandSetId extends OsuCommandBase
                     .add("然后在QQ上输入指令 /verify [验证码] 就能完成绑定啦!")
                     .toString();
         }
+
+        private static String verificationCode(String verificationCode)
+        {
+            return verificationCode + " _(:з」∠)_";
+        }
     }
 }
