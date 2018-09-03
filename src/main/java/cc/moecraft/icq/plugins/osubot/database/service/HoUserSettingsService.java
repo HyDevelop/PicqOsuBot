@@ -1,9 +1,8 @@
 package cc.moecraft.icq.plugins.osubot.database.service;
 
-import cc.moecraft.icq.plugins.osubot.database.model.HoUserData;
+import cc.moecraft.icq.plugins.osubot.database.model.HoUserSettings;
 import com.jfinal.plugin.activerecord.Model;
 import com.jfinal.plugin.activerecord.Page;
-import cc.moecraft.icq.plugins.osubot.database.model.HoUserSettings;
 
 import java.util.List;
 

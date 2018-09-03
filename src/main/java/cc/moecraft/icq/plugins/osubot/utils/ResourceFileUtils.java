@@ -1,7 +1,6 @@
 package cc.moecraft.icq.plugins.osubot.utils;
 
 import cc.moecraft.icq.plugins.osubot.Main;
-import org.apache.commons.io.FilenameUtils;
 import org.rauschig.jarchivelib.Archiver;
 import org.rauschig.jarchivelib.ArchiverFactory;
 

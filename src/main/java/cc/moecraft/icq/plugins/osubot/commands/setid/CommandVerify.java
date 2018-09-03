@@ -1,7 +1,6 @@
 package cc.moecraft.icq.plugins.osubot.commands.setid;
 
 import cc.moecraft.icq.command.CommandProperties;
-import cc.moecraft.icq.command.interfaces.EverywhereCommand;
 import cc.moecraft.icq.event.events.message.EventMessage;
 import cc.moecraft.icq.plugins.osubot.commands.OsuCommandBase;
 import cc.moecraft.icq.plugins.osubot.database.ServiceInstanceManager;

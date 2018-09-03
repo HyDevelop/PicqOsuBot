@@ -5,7 +5,6 @@ import lombok.Getter;
 import org.pircbotx.Configuration;
 import org.pircbotx.PircBotX;
 import org.pircbotx.exception.IrcException;
-import org.pircbotx.output.OutputIRC;
 
 import java.io.IOException;
 

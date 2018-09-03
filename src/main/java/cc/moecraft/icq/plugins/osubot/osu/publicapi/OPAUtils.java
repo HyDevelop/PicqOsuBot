@@ -1,11 +1,11 @@
 package cc.moecraft.icq.plugins.osubot.osu.publicapi;
 
 import cc.moecraft.icq.plugins.osubot.Main;
+import cc.moecraft.icq.plugins.osubot.osu.exceptions.JsonEmptyException;
 import cc.moecraft.icq.plugins.osubot.osu.publicapi.data.OPADataBase;
 import cc.moecraft.icq.plugins.osubot.osu.publicapi.parameters.OPAParamsBase;
 import cc.moecraft.icq.plugins.osubot.osu.publicapi.parameters.OPAUserParams;
 import cc.moecraft.icq.plugins.osubot.osu.publicapi.parameters.tags.OPAParameter;
-import cc.moecraft.icq.plugins.osubot.osu.exceptions.JsonEmptyException;
 import cc.moecraft.utils.DownloadUtils;
 import cc.moecraft.utils.JsonUtils;
 import cc.moecraft.utils.ReflectUtils;

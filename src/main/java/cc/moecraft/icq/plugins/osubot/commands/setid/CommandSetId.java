@@ -10,11 +10,10 @@ import cc.moecraft.icq.plugins.osubot.database.service.impl.HoUserSettingsServic
 import cc.moecraft.icq.plugins.osubot.osu.exceptions.UserNotFoundException;
 import cc.moecraft.icq.plugins.osubot.osu.webapi.OWAUserData;
 import cc.moecraft.icq.plugins.osubot.osu.webapi.OWAUtils;
-import cc.moecraft.utils.MathUtils;
-import cc.moecraft.icq.plugins.permissions.Permissions;
 import cc.moecraft.icq.sender.message.MessageBuilder;
 import cc.moecraft.icq.user.User;
 import cc.moecraft.utils.ArrayUtils;
+import cc.moecraft.utils.MathUtils;
 import cn.hutool.http.HttpException;
 import lombok.AllArgsConstructor;
 import lombok.Data;

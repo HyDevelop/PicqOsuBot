@@ -2,7 +2,6 @@ package cc.moecraft.icq.plugins.osubot.utils;
 
 import com.jfinal.config.JFinalConfig;
 import com.jfinal.core.JFinal;
-import io.jboot.Jboot;
 import io.jboot.web.JbootAppConfig;
 import lombok.Getter;
 

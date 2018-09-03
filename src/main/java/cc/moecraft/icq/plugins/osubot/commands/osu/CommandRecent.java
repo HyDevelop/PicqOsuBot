@@ -4,7 +4,6 @@ import cc.moecraft.icq.command.CommandProperties;
 import cc.moecraft.icq.event.events.message.EventMessage;
 import cc.moecraft.icq.plugins.osubot.Main;
 import cc.moecraft.icq.plugins.osubot.browser.browsers.RecentBrowser;
-import cc.moecraft.icq.plugins.osubot.browser.browsers.SkillsBrowser;
 import cc.moecraft.icq.plugins.osubot.commands.OsuCommandBase;
 import cc.moecraft.icq.plugins.osubot.osu.exceptions.RecentScoreNotEnoughException;
 import cc.moecraft.icq.plugins.osubot.osu.exceptions.UnsupportedModeException;
