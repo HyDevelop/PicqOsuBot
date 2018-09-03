@@ -46,6 +46,7 @@ public class CommandSetId extends OsuCommandBase
     @Override
     public String runOsu(EventMessage event, User user, String command, ArrayList<String> args) throws HttpException, UserNotFoundException
     {
+        long currentTime = System.currentTimeMillis();
         if (args.get(0).equals("confirm"))
         {
             if (!confirmMap.containsKey(user.getId())) return Messages.requestNotFound(command);
