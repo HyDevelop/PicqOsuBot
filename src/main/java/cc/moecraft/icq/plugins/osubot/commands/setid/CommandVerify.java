@@ -85,5 +85,13 @@ public class CommandVerify extends OsuCommandBase
                     .add("你输的验证码是").add(verificationCodeFromUser.length()).add("位!!")
                     .toString();
         }
+
+        private static String timeout()
+        {
+            return new MessageBuilder()
+                    .add("这个验证码已经超过30分钟了...").newLine()
+                    .add("想重新绑定的话联系 ").add(CONTACT_INFO).add(" 吧!")
+                    .toString();
+        }
     }
 }
