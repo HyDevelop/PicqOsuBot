@@ -53,6 +53,11 @@ public class CommandSetId extends OsuCommandBase
             PendingDataSet dataSet = confirmMap.get(user.getId());
             if (!isConfirmTimeValid(dataSet)) return Messages.confirmTimeInvalid(command);
 
+            // 保存数据库并发送验证码
+            dataSet.getUserSettings().save();
+            Main.getPircSender().send(dataSet.getUserData().getUsername(), Messages.verificationCode(dataSet.getUserSettings().getVerificationCode()));
+            this.confirmMap.remove(user.getId());
+            return Messages.verificationNeeded(dataSet);
         }
         else
         {
