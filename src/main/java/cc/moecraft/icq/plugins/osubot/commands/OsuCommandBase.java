@@ -80,13 +80,18 @@ public abstract class OsuCommandBase implements EverywhereCommand
 
     public abstract String help(String command);
 
-    public void logComplete(String nick, String username, long startTime)
+    protected void logComplete(String nick, String username, long startTime)
     {
         Main.getInstance().getLogger().log(String.format("%s - 用户 %s 查询 %s 完毕, 耗时 %sms",
                 name.toUpperCase(), nick, username, System.currentTimeMillis() - startTime));
     }
 
-    public String getImageMessage(File imageFile)
+    protected void logComplete(String message)
+    {
+        Main.getInstance().getLogger().log(name.toUpperCase() + " - " + message);
+    }
+
+    protected String getImageMessage(File imageFile)
     {
         if (imageFile == null) return GeneralMessages.FAILED_NULL;
         return new ComponentImage("file://" + imageFile.getAbsolutePath()).toString();
