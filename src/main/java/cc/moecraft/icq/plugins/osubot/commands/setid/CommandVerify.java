@@ -42,6 +42,10 @@ public class CommandVerify extends OsuCommandBase
     {
         long currentTime = System.currentTimeMillis();
 
+        // 验证长度
+        String verificationCodeFromUser = ArrayUtils.getTheRestArgsAsString(args, 0);
+        if (verificationCodeFromUser.length() != 8) return Messages.invalidLength(verificationCodeFromUser);
+
     }
 
     @Override
