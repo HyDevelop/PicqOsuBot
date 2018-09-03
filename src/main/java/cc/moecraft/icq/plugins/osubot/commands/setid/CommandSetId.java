@@ -48,6 +48,7 @@ public class CommandSetId extends OsuCommandBase
     {
         if (args.get(0).equals("confirm"))
         {
+            if (!confirmMap.containsKey(user.getId())) return Messages.requestNotFound(command);
 
         }
         else
