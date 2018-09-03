@@ -77,4 +77,8 @@ public class CommandSetId extends OsuCommandBase
         HoUserSettings userSettings;
         long startTime;
     }
+
+    private static class Messages
+    {
+    }
 }
