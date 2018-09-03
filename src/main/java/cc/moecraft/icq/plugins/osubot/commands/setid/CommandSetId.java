@@ -66,6 +66,14 @@ public class CommandSetId extends OsuCommandBase
             String username = ArrayUtils.getTheRestArgsAsString(args, 0);
             OWAUserData userData = OWAUtils.getUserData(username);
 
+            // 验证数据库内是否已存在osu id
+            HoUserSettings osuIdUserSettings = ServiceInstanceManager.get(HoUserSettingsServiceImpl.class).findByOsu(userData.getId());
+            if (osuIdUserSettings != null)
+            {
+                if (osuIdUserSettings.getVerificationState().equals(VerificationStates.VERIFIED)) return Messages.osuIdAlreadyVerified(osuIdUserSettings);
+                if (isTimeValid(osuIdUserSettings)) return Messages.requestedAndValidTime();
+                return Messages.requestedButInvalidTime(osuIdUserSettings, command);
+            }
         }
     }
 
