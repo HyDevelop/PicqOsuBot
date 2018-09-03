@@ -80,5 +80,13 @@ public class CommandSetId extends OsuCommandBase
 
     private static class Messages
     {
+        private static String osuIdAlreadyVerified(HoUserSettings userSettings)
+        {
+            return new MessageBuilder()
+                    .add("玩家 ").add(userSettings.getOsuName()).add(" 已经绑定过了啦...").newLine()
+                    .add("他绑定的QQ是").add(userSettings.getQqId()).add("!").newLine()
+                    .add("要解绑或绑定其他OsuID的话, 联系: ").add(CONTACT_INFO).add("啦!")
+                    .toString();
+        }
     }
 }
