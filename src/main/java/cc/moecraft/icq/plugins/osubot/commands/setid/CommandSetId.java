@@ -125,5 +125,14 @@ public class CommandSetId extends OsuCommandBase
                     .add("请输入 /bind confirm 确认")
                     .toString();
         }
+
+        private static String verificationNeeded(PendingDataSet dataSet)
+        {
+            return new MessageBuilder()
+                    .add("已将验证码发送给: ").add(dataSet.getUserData().getUsername()).newLine()
+                    .add("请在游戏内接收验证码w").newLine()
+                    .add("然后在QQ上输入指令 /verify [验证码] 就能完成绑定啦!")
+                    .toString();
+        }
     }
 }
