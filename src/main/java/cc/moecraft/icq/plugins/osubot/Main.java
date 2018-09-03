@@ -4,16 +4,18 @@ import cc.moecraft.icq.command.interfaces.IcqCommand;
 import cc.moecraft.icq.event.IcqListener;
 import cc.moecraft.icq.pluginmanager.plugin.IcqPlugin;
 import cc.moecraft.icq.plugins.osubot.browser.OsuBrowserManager;
-import cc.moecraft.icq.plugins.osubot.commands.managing.CommandIrcServerInfo;
-import cc.moecraft.icq.plugins.osubot.commands.managing.CommandIrcStatus;
+import cc.moecraft.icq.plugins.osubot.commands.irc.CommandIrcServerInfo;
+import cc.moecraft.icq.plugins.osubot.commands.irc.CommandIrcStatus;
+import cc.moecraft.icq.plugins.osubot.commands.misc.TestCommand;
 import cc.moecraft.icq.plugins.osubot.commands.osu.*;
-import cc.moecraft.icq.plugins.osubot.database.Database;
+import cc.moecraft.icq.plugins.osubot.commands.setid.CommandSetId;
+import cc.moecraft.icq.plugins.osubot.commands.setid.CommandVerify;
+import cc.moecraft.icq.plugins.osubot.utils.JbootUtils;
 import cc.moecraft.irc.PircSender;
 import cc.moecraft.logger.HyLogger;
 import lombok.Getter;
 
 import java.io.IOException;
-import java.sql.SQLException;
 
 import static cc.moecraft.icq.plugins.osubot.utils.ResourceFileUtils.*;
 
@@ -27,14 +29,13 @@ import static cc.moecraft.icq.plugins.osubot.utils.ResourceFileUtils.*;
  */
 public class Main extends IcqPlugin
 {
+    public static final String CONTACT_INFO = "qq:565656";
+
     @Getter
     private static OsuBrowserManager browserManager;
 
     @Getter
     private static String apiKey;
-
-    @Getter
-    private static Database database;
 
     @Getter
     private static PircSender pircSender;
@@ -46,12 +47,6 @@ public class Main extends IcqPlugin
         instance = this;
 
         if (apiKey == null) apiKey = getConfig().getString("APIKey");
-        if (database == null) database = new Database(
-                getConfig().getString("Database-MySQL.Host"),
-                getConfig().getString("Database-MySQL.Database"),
-                getConfig().getString("Database-MySQL.Username"),
-                getConfig().getString("Database-MySQL.Password"),
-                getConfig().getInt("Database-MySQL.Port"));
         if (pircSender == null) pircSender = new PircSender(
                 getConfig().getString("IRC.Host"),
                 getConfig().getInt("IRC.Port"),
@@ -85,8 +80,6 @@ public class Main extends IcqPlugin
             browserManager = new OsuBrowserManager();
             logger.timing.timeAndReset();
 
-            logger.log("正在连接数据库...");
-            database.openConnection();
             logger.timing.timeAndReset();
 
             logger.log("正在连接IRC...");
@@ -97,7 +90,7 @@ public class Main extends IcqPlugin
             logger.timing.timeAndReset();
             logger.timing.clear();
         }
-        catch (IOException | SQLException | ClassNotFoundException e)
+        catch (IOException e)
         {
             throw new RuntimeException(e);
         }
@@ -111,8 +104,10 @@ public class Main extends IcqPlugin
                         new CommandStats(),
                         new CommandSkills(),
                         new CommandRecent(),
-                        new CommandSetId(),
                         new CommandHelp(),
+
+                        new CommandSetId(),
+                        new CommandVerify(),
 
                         new CommandIrcServerInfo(),
                         new CommandIrcStatus()
