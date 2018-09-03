@@ -72,5 +72,10 @@ public class CommandVerify extends OsuCommandBase
         {
             return "你还没setid怎么验证哇...";
         }
+
+        private static String alreadyVerified()
+        {
+            return "你已经验证过了啦w";
+        }
     }
 }
