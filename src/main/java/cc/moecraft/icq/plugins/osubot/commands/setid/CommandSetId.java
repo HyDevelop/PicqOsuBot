@@ -68,4 +68,13 @@ public class CommandSetId extends OsuCommandBase
     {
         return new CommandProperties("setid", "bind");
     }
+
+    @Data @AllArgsConstructor @ToString(callSuper = true)
+    private static class PendingDataSet
+    {
+        User user;
+        OWAUserData userData;
+        HoUserSettings userSettings;
+        long startTime;
+    }
 }
