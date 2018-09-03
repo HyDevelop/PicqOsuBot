@@ -77,5 +77,13 @@ public class CommandVerify extends OsuCommandBase
         {
             return "你已经验证过了啦w";
         }
+
+        private static String invalidLength(String verificationCodeFromUser)
+        {
+            return new MessageBuilder()
+                    .add("输错啦w 应该是8位数字的!").newLine()
+                    .add("你输的验证码是").add(verificationCodeFromUser.length()).add("位!!")
+                    .toString();
+        }
     }
 }
