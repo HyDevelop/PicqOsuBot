@@ -55,4 +55,15 @@ public class JbootUtils
     {
         JFinal.me().getConstants().setDevMode(devMode);
     }
+    /**
+     * 系统输出过滤,
+     * 用来防止Jboot输出Sql指令信息刷屏什么的_(:з」∠)_
+     */
+    public static class SystemOutFilter extends PrintStream
+    {
+        private SystemOutFilter(OutputStream out)
+        {
+            super(out);
+        }
+    }
 }
