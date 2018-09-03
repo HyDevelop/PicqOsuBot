@@ -49,6 +49,7 @@ public class CommandVerify extends OsuCommandBase
         // 获取数据库对象
         HoUserSettings userSettings = ServiceInstanceManager.get(HoUserSettingsServiceImpl.class).findByQq(user.getId());
         if (userSettings == null) return Messages.notRequested();
+        if (userSettings.getVerificationState().equals(VerificationStates.VERIFIED)) return Messages.alreadyVerified();
     }
 
     @Override
