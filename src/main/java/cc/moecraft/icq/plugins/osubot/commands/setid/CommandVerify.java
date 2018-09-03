@@ -30,6 +30,8 @@ import static cc.moecraft.icq.plugins.osubot.Main.CONTACT_INFO;
  */
 public class CommandVerify extends OsuCommandBase
 {
+    private Map<Long, Long> qqTimeMap = new HashMap<>();
+
     public CommandVerify()
     {
         super(1, "verify");
