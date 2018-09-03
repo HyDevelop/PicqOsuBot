@@ -9,6 +9,9 @@ import java.util.List;
 
 public interface HoUserSettingsService
 {
+    public HoUserSettings findByOsu(long osuId);
+    public HoUserSettings findByQq(long qqId);
+
     /**
      * find model by primary key
      *
