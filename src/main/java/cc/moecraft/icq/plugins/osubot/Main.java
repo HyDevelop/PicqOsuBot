@@ -80,6 +80,12 @@ public class Main extends IcqPlugin
             browserManager = new OsuBrowserManager();
             logger.timing.timeAndReset();
 
+            logger.log("正在初始化Jboot数据库...");
+            Thread.currentThread().setContextClassLoader(getClassLoader());
+            JbootUtils.initializeJFinalSafe();
+            Thread.currentThread().setContextClassLoader(null);
+            JbootUtils.setDevMode(getBot().isDebug());
+            if (!getBot().isDebug()) JbootUtils.disableSqlReport();
             logger.timing.timeAndReset();
 
             logger.log("正在连接IRC...");
