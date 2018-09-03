@@ -58,5 +58,9 @@ public class CommandVerify extends OsuCommandBase
 
     private static class Messages
     {
+        private static String success(HoUserSettings userSettings)
+        {
+            return "验证成功啦! 已绑定ID: " + userSettings.getOsuName();
+        }
     }
 }
