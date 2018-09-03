@@ -1,9 +1,19 @@
+# Osu public api key.
 APIKey: '-INSERT API KEY HERE-'
+
+# Irc login info
+# Used for sending verification codes
 IRC:
   Host: 'irc.ppy.sh'
   Port: 6667
   Username: '-INSERT USERNAME HERE-'
   Password: '-INSERT PASSWORD HERE-'
+
+# File encoding settings
+Encoding:
+  Force: true
+  Encoding: utf-8
+
 #-----------------------------------------------#
 # Database section is deprecated.               #
 # You'll have to configure your database in     #
