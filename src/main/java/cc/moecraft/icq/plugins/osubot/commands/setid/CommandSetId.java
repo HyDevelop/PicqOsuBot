@@ -50,6 +50,9 @@ public class CommandSetId extends OsuCommandBase
         {
             if (!confirmMap.containsKey(user.getId())) return Messages.requestNotFound(command);
 
+            PendingDataSet dataSet = confirmMap.get(user.getId());
+            if (!isConfirmTimeValid(dataSet)) return Messages.confirmTimeInvalid(command);
+
         }
         else
         {
