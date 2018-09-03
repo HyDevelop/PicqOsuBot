@@ -115,5 +115,15 @@ public class CommandSetId extends OsuCommandBase
                     .add("如果已经登录进游戏了就/setid confirm好啦w")
                     .toString();
         }
+
+        private static String confirmNeeded(HoUserSettings userSettings)
+        {
+            return new MessageBuilder()
+                    .add("注意: 一个QQ只能申请一次绑定,").newLine()
+                    .add("").add(userSettings.getOsuName()).add("必须是你的真实ID哦!").newLine()
+                    .add("还有必须确认前登录游戏才能收到验证码!").newLine()
+                    .add("请输入 /bind confirm 确认")
+                    .toString();
+        }
     }
 }
