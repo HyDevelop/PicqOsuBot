@@ -56,6 +56,7 @@ public class CommandSetId extends OsuCommandBase
             // 保存数据库并发送验证码
             dataSet.getUserSettings().save();
             Main.getPircSender().send(dataSet.getUserData().getUsername(), Messages.verificationCode(dataSet.getUserSettings().getVerificationCode()));
+            logComplete("用户 " + user.getInfo().getNickname() + " 确认了SetID请求");
             this.confirmMap.remove(user.getId());
             return Messages.verificationNeeded(dataSet);
         }
@@ -93,6 +94,7 @@ public class CommandSetId extends OsuCommandBase
             userSettings.setVerificationTime(currentTime);
 
             // 放入缓存
+            logComplete("用户 " + user.getInfo().getNickname() + " 请求了SetID.");
             this.confirmMap.put(user.getId(), new PendingDataSet(user, userData, userSettings, currentTime));
             return Messages.confirmNeeded(userSettings);
         }

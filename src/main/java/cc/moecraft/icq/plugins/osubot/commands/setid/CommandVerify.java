@@ -59,6 +59,7 @@ public class CommandVerify extends OsuCommandBase
         // 记录为已验证
         userSettings.setVerificationState(VerificationStates.VERIFIED);
         userSettings.update();
+        logComplete("用户 " + user.getInfo().getNickname() + " 绑定完毕! 绑定到了: " + userSettings.getOsuName());
 
         return Messages.success(userSettings);
     }
