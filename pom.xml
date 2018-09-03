@@ -35,6 +35,12 @@
         </dependency>
 
         <dependency>
+            <groupId>io.jboot</groupId>
+            <artifactId>jboot</artifactId>
+            <version>1.5.2</version>
+        </dependency>
+
+        <dependency>
             <groupId>com.github.HyDEV-Plugins</groupId>
             <artifactId>PicqPermissionManager</artifactId>
             <version>1.0.0</version>
