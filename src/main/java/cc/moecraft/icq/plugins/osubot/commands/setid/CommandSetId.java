@@ -97,5 +97,15 @@ public class CommandSetId extends OsuCommandBase
                     .add("要解绑或绑定其他OsuID的话, 联系: ").add(CONTACT_INFO).add("啦!")
                     .toString();
         }
+
+        private static String requestedButInvalidTime(HoUserSettings userSettings, String command)
+        {
+            return new MessageBuilder()
+                    .add("你要绑定的ID ").add(userSettings.getOsuName()).add(" 已经请求过").add(command).add("了...").newLine()
+                    .add("但是他没有在30分钟内验证完_(:з」∠)_").newLine()
+                    .add("为了防止游戏内聊天刷屏...").newLine()
+                    .add("要重新绑定的话请联系: ").add(CONTACT_INFO).add("!")
+                    .toString();
+        }
     }
 }
