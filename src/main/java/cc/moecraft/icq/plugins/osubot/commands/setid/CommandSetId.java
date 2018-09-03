@@ -155,4 +155,9 @@ public class CommandSetId extends OsuCommandBase
                     .toString();
         }
     }
+
+    static boolean isTimeValid(HoUserSettings userSettings)
+    {
+        return System.currentTimeMillis() - userSettings.getVerificationTime() < 30 * 60 * 1000;
+    }
 }
