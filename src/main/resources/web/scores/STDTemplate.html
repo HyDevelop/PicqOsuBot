@@ -1,0 +1,85 @@
+<html>
+    <head>
+        <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+        <!--link href='http://fonts.googleapis.com/css?family=Exo+2:300,300italic,200,200italic,400,400italic,500,500italic,600,600italic,700,700italic,900' rel='stylesheet' type='text/css'>
+        <link href='https://fonts.googleapis.com/css?family=Noto+Sans:400,400i,700,700i' rel='stylesheet' type='text/css'-->
+        <link rel="stylesheet" media="all" href="../css/osu.css">
+        <title>Rendering</title>
+    </head>
+    <body>
+        <div class="osu-page action-show" style="margin-top: 50px;">
+            <div class="beatmap-score-top__section" style="border-radius: 10px; background: white url(../bg-light.png); width: 1120px; position: fixed; left: 10px; top: 10px;">
+                <div class="beatmap-score-top__wrapping-container beatmap-score-top__wrapping-container--left">
+                    <div class="beatmap-score-top__position">
+                        <!--div class="beatmap-score-top__position-number">%{rank}</div-->
+                        <div class="badge-rank badge-rank--small badge-rank--%{score-short}"></div>
+                    </div>
+                    <div class="beatmap-score-top__avatar"><a href="#" class="avatar" style="background-image: url('%{avatar-url}');"></a></div>
+                    <div class="beatmap-score-top__user-box">
+                        <a class="beatmap-score-top__username">%{bm-title} - %{bm-artist} [%{bm-version}]</a>
+                        <div class="beatmap-score-top__achieved">%{username} 在 %{rel-time} 达成</div>
+                        <div class="beatmap-score-top__achieved"> CS %{cs} | HP %{hp} | OD %{od} | AR %{ar}</div>
+                        <div class="beatmap-score-top__achieved"> 总 %{stars}星 | 瞄准 %{stars.aim}星 | 速度 %{stars.speed}星</div>
+                    </div>
+                </div>
+                <div class="beatmap-score-top__wrapping-container beatmap-score-top__wrapping-container--right">
+                    <div class="beatmap-score-top__stats">
+                        <div class="beatmap-score-top__stat">
+                            <div class="beatmap-score-top__stat-header beatmap-score-top__stat-header--wider">总PP</div>
+                            <div class="beatmap-score-top__stat-value beatmap-score-top__stat-value--score">%{pp}</div>
+                        </div>
+                    </div>
+                    <div class="beatmap-score-top__stats">
+                        <div class="beatmap-score-top__stat">
+                            <div class="beatmap-score-top__stat-header beatmap-score-top__stat-header--wider">得分</div>
+                            <div class="beatmap-score-top__stat-value beatmap-score-top__stat-value--score">%{score}</div>
+                        </div>
+                        <div class="beatmap-score-top__stat">
+                            <div class="beatmap-score-top__stat-header beatmap-score-top__stat-header--wider">准确率</div>
+                            <div class="beatmap-score-top__stat-value beatmap-score-top__stat-value--score">%{acc}%</div>
+                        </div>
+                        <div class="beatmap-score-top__stat">
+                            <div class="beatmap-score-top__stat-header beatmap-score-top__stat-header--wider">最大连击</div>
+                            <div class="beatmap-score-top__stat-value beatmap-score-top__stat-value--score">%{combo}x</div>
+                        </div>
+                    </div>
+                    <div class="beatmap-score-top__stats beatmap-score-top__stats--wrappable">
+                        <div class="beatmap-score-top__stat">
+                            <div class="beatmap-score-top__stat-header">300</div>
+                            <div class="beatmap-score-top__stat-value beatmap-score-top__stat-value--score beatmap-score-top__stat-value--smaller">%{h300}</div>
+                        </div>
+                        <div class="beatmap-score-top__stat">
+                            <div class="beatmap-score-top__stat-header">100</div>
+                            <div class="beatmap-score-top__stat-value beatmap-score-top__stat-value--score beatmap-score-top__stat-value--smaller">%{h100}</div>
+                        </div>
+                        <div class="beatmap-score-top__stat">
+                            <div class="beatmap-score-top__stat-header">50</div>
+                            <div class="beatmap-score-top__stat-value beatmap-score-top__stat-value--score beatmap-score-top__stat-value--smaller">%{h50}</div>
+                        </div>
+                        <div class="beatmap-score-top__stat">
+                            <div class="beatmap-score-top__stat-header">Miss</div>
+                            <div class="beatmap-score-top__stat-value beatmap-score-top__stat-value--score beatmap-score-top__stat-value--smaller">%{h0}</div>
+                        </div>
+                        <div class="beatmap-score-top__stat">
+                            <div class="beatmap-score-top__stat-header">瞄准PP</div>
+                            <div class="beatmap-score-top__stat-value beatmap-score-top__stat-value--score beatmap-score-top__stat-value--smaller">%{ppa}</div>
+                        </div>
+                        <div class="beatmap-score-top__stat">
+                            <div class="beatmap-score-top__stat-header">速度PP</div>
+                            <div class="beatmap-score-top__stat-value beatmap-score-top__stat-value--score beatmap-score-top__stat-value--smaller">%{pps}</div>
+                        </div>
+                        <div class="beatmap-score-top__stat">
+                            <div class="beatmap-score-top__stat-header beatmap-score-top__stat-header--mods">Mod</div>
+                            <div class="beatmap-score-top__stat-value beatmap-score-top__stat-value--score beatmap-score-top__stat-value--smaller">
+                                <div class="mods mods--scoreboard">
+                                    <!-- 注入之后再注入mods -->
+                                    %{mods}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
