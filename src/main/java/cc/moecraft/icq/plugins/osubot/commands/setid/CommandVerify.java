@@ -50,6 +50,7 @@ public class CommandVerify extends OsuCommandBase
         HoUserSettings userSettings = ServiceInstanceManager.get(HoUserSettingsServiceImpl.class).findByQq(user.getId());
         if (userSettings == null) return Messages.notRequested();
         if (userSettings.getVerificationState().equals(VerificationStates.VERIFIED)) return Messages.alreadyVerified();
+        if (!CommandSetId.isTimeValid(userSettings)) return Messages.timeout();
     }
 
     @Override
