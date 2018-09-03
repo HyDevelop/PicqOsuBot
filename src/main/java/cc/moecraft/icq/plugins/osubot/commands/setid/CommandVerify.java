@@ -62,5 +62,10 @@ public class CommandVerify extends OsuCommandBase
         {
             return "验证成功啦! 已绑定ID: " + userSettings.getOsuName();
         }
+
+        private static String invalidVerificationCode()
+        {
+            return "验证码不对哦! 请10秒后再试_(:з」∠)_";
+        }
     }
 }
