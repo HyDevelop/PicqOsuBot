@@ -35,7 +35,7 @@ public class CommandSkills extends OsuCommandBase
         long startTime = System.currentTimeMillis();
 
         String username = ArrayUtils.getTheRestArgsAsString(arrayList, 0);
-        File imageFile = Main.getInstance().getBrowserManager().getBrowser(SkillsBrowser.class).render(username);
+        File imageFile = Main.getBrowserManager().getBrowser(SkillsBrowser.class).render(username);
 
         logComplete(user.getInfo().getNickname(), username, startTime);
         return getImageMessage(imageFile);

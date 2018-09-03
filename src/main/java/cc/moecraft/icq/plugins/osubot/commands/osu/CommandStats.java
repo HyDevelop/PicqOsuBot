@@ -40,7 +40,7 @@ public class CommandStats extends OsuCommandBase
         OWAUserData userData = OWAUtils.getUserData(username);
         Long userId = userData.getId();
 
-        File imageFile = Main.getInstance().getBrowserManager().getBrowser(StatsBrowser.class).render(userId);
+        File imageFile = Main.getBrowserManager().getBrowser(StatsBrowser.class).render(userId);
         logComplete(user.getInfo().getNickname(), username, startTime);
         return getImageMessage(imageFile);
     }
