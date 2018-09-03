@@ -22,4 +22,16 @@ import java.util.ArrayList;
  */
 public class JbootUtils
 {
+    public static void initializeJFinal() throws ClassNotFoundException, NoSuchMethodException, InvocationTargetException, IllegalAccessException
+    {
+        // 找到JFinal的Config类的configJfinal(JFinalConfig jfinalConfig)方法
+        Class<?> configClass = Class.forName("com.jfinal.core.Config");
+        Method configJFinal = configClass.getDeclaredMethod("configJFinal", JFinalConfig.class);
+
+        // 因为它的访问级别是Package Private, 需要setAccessible(true)才能调用
+        configJFinal.setAccessible(true);
+
+        // 用Jboot的配置文件调用
+        configJFinal.invoke(null, new JbootAppConfig());
+    }
 }
