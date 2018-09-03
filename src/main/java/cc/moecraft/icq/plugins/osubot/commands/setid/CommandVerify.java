@@ -67,5 +67,10 @@ public class CommandVerify extends OsuCommandBase
         {
             return "验证码不对哦! 请10秒后再试_(:з」∠)_";
         }
+
+        private static String notRequested()
+        {
+            return "你还没setid怎么验证哇...";
+        }
     }
 }
