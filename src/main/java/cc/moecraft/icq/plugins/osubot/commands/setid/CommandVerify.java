@@ -40,6 +40,8 @@ public class CommandVerify extends OsuCommandBase
     @Override
     public String runOsu(EventMessage event, User user, String command, ArrayList<String> args) throws UserNotFoundException, HttpException, IOException
     {
+        long currentTime = System.currentTimeMillis();
+
     }
 
     @Override
