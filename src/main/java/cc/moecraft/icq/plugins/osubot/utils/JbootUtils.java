@@ -68,5 +68,23 @@ public class JbootUtils
         {
             super(out);
         }
+
+        /**
+         * 过滤StackTrace
+         * @return 是否通过过滤
+         */
+        private boolean verify()
+        {
+            StackTraceElement stackTrace = Thread.currentThread().getStackTrace()[3];
+
+            String stClass = stackTrace.getClassName();
+            String stMethod = stackTrace.getMethodName();
+            String stLine = stackTrace.getLineNumber() + "";
+            String stFull = stClass + "." + stMethod + ":" + stLine;
+
+            for (String disabledStackTrace : disabledStackTraces)
+                if (disabledStackTrace.equals(stFull)) return false;
+            return true;
+        }
     }
 }
