@@ -55,6 +55,14 @@ public class JbootUtils
     {
         JFinal.me().getConstants().setDevMode(devMode);
     }
+
+    private static SystemOutFilter systemOutFilter = null;
+    public static void enableSystemOutFilter()
+    {
+        if (systemOutFilter != null) return;
+        System.setOut(systemOutFilter = new SystemOutFilter(System.out));
+    }
+
     /**
      * 系统输出过滤,
      * 用来防止Jboot输出Sql指令信息刷屏什么的_(:з」∠)_
