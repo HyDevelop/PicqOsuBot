@@ -86,5 +86,11 @@ public class JbootUtils
                 if (disabledStackTrace.equals(stFull)) return false;
             return true;
         }
+
+        @Override
+        public void println(String s)
+        {
+            if (verify()) super.println(s);
+        }
     }
 }
