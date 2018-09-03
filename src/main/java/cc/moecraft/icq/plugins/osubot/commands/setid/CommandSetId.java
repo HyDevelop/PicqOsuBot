@@ -107,5 +107,13 @@ public class CommandSetId extends OsuCommandBase
                     .add("要重新绑定的话请联系: ").add(CONTACT_INFO).add("!")
                     .toString();
         }
+
+        private static String requestedAndValidTime()
+        {
+            return new MessageBuilder()
+                    .add("已经输过setid啦... 看看上面那一段!").newLine()
+                    .add("如果已经登录进游戏了就/setid confirm好啦w")
+                    .toString();
+        }
     }
 }
