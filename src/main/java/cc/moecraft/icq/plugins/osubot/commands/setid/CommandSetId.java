@@ -46,6 +46,14 @@ public class CommandSetId extends OsuCommandBase
     @Override
     public String runOsu(EventMessage event, User user, String command, ArrayList<String> args) throws HttpException, UserNotFoundException
     {
+        if (args.get(0).equals("confirm"))
+        {
+
+        }
+        else
+        {
+
+        }
     }
 
     @Override
