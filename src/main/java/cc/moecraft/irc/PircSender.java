@@ -35,7 +35,7 @@ public class PircSender
 
     public void send(String to, String content)
     {
-        to = to.replace(" ", "_");
+        to = to.replace(" ", "_").replace("%20", "_");
         rawSend(to, content);
     }
 
