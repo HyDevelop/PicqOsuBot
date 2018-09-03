@@ -11,4 +11,9 @@ import javax.inject.Singleton;
 @Singleton
 public class HoUserDataServiceImpl extends JbootServiceBase<HoUserData> implements HoUserDataService
 {
+    @Override
+    public HoUserData findByOsu(long osuId)
+    {
+        return getDao().findFirstByColumn("osu_id", osuId);
+    }
 }

@@ -8,6 +8,8 @@ import java.util.List;
 
 public interface HoUserDataService
 {
+    public HoUserData findByOsu(long osuId);
+
     /**
      * find model by primary key
      *
