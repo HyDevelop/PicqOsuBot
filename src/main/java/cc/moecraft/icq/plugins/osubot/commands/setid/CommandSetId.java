@@ -81,6 +81,21 @@ public class CommandSetId extends OsuCommandBase
             {
                 return Messages.qqIdAlreadyVerified(qqIdUserSettings);
             }
+
+            // 数据库内不存在
+            String verificationCode = String.valueOf(MathUtils.getRandom(10000000, 99999999));
+            HoUserSettings userSettings = new HoUserSettings();
+            userSettings.setOsuId(userData.getId());
+            userSettings.setOsuName(userData.getUsername());
+            userSettings.setQqId(user.getId());
+            userSettings.setDefaultMode(userData.playmode);
+            userSettings.setVerificationCode(verificationCode);
+            userSettings.setVerificationState(VerificationStates.VERIFYING);
+            userSettings.setVerificationTime(currentTime);
+
+            // 放入缓存
+            this.confirmMap.put(user.getId(), new PendingDataSet(user, userData, userSettings, currentTime));
+            return Messages.confirmNeeded(userSettings);
         }
     }
 
