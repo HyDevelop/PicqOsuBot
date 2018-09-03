@@ -5,10 +5,15 @@ import cc.moecraft.icq.event.events.message.EventDiscussMessage;
 import cc.moecraft.icq.event.events.message.EventGroupMessage;
 import cc.moecraft.icq.event.events.message.EventMessage;
 import cc.moecraft.icq.plugins.osubot.Main;
+import cc.moecraft.icq.plugins.osubot.database.ServiceInstanceManager;
+import cc.moecraft.icq.plugins.osubot.database.model.HoUserSettings;
+import cc.moecraft.icq.plugins.osubot.database.service.impl.HoUserSettingsServiceImpl;
 import cc.moecraft.icq.plugins.osubot.osu.exceptions.UserNotFoundException;
 import cc.moecraft.icq.sender.message.components.ComponentImage;
 import cc.moecraft.icq.user.User;
+import cc.moecraft.utils.ArrayUtils;
 import cn.hutool.http.HttpException;
+import com.rabbitmq.client.AMQP;
 import lombok.RequiredArgsConstructor;
 
 import java.io.File;
@@ -73,5 +78,25 @@ public abstract class OsuCommandBase implements EverywhereCommand
     {
         if (imageFile == null) return GeneralMessages.FAILED_NULL;
         return new ComponentImage("file://" + imageFile.getAbsolutePath()).toString();
+    }
+
+    protected String getDatabasedUsername(ArrayList<String> args, int index, User user) throws GetIDException
+    {
+        if (args.size() > index)
+        {
+            // 用户输入了用户名
+            //System.out.println("0");
+            return ArrayUtils.getTheRestArgsAsString(args, index);
+        }
+        else
+        {
+           // System.out.println("1");
+            HoUserSettings qqIdUserSettings = ServiceInstanceManager.get(HoUserSettingsServiceImpl.class).findByQq(user.getId());
+            //System.out.println("2");
+            //System.out.println(qqIdUserSettings);
+            if (qqIdUserSettings == null) throw new GetIDException(GetIDException.Operation.SEND_HELP);
+            //System.out.println("3");
+            return qqIdUserSettings.getOsuName();
+        }
     }
 }
