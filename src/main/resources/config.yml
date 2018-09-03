@@ -1,12 +1,18 @@
 APIKey: '-INSERT API KEY HERE-'
-Database-MySQL:
-  Host: '-INSERT HOST URL HERE-'
-  Port: -INSERT PORT HERE-
-  Database: '-INSERT DATABASE NAME HERE'
-  Username: '-INSERT USERNAME HERE-'
-  Password: '-INSERT PASSWORD HERE-'
 IRC:
   Host: 'irc.ppy.sh'
   Port: 6667
   Username: '-INSERT USERNAME HERE-'
   Password: '-INSERT PASSWORD HERE-'
+#-----------------------------------------------#
+# Database section is deprecated.               #
+# You'll have to configure your database in     #
+# jboot.properties in the class resources.      #
+#-----------------------------------------------#
+# Database-MySQL:                               #
+#   Host: '-INSERT HOST URL HERE-'              #
+#   Port: -INSERT PORT HERE-                    #
+#   Database: '-INSERT DATABASE NAME HERE'      #
+#   Username: '-INSERT USERNAME HERE-'          #
+#   Password: '-INSERT PASSWORD HERE-'          #
+#-----------------------------------------------#
