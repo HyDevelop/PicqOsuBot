@@ -61,6 +61,9 @@ public class JbootUtils
      */
     public static class SystemOutFilter extends PrintStream
     {
+        @Getter
+        private ArrayList<String> disabledStackTraces = new ArrayList<>();
+
         private SystemOutFilter(OutputStream out)
         {
             super(out);
