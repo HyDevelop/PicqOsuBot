@@ -64,6 +64,15 @@ public class JbootUtils
     }
 
     /**
+     * 关闭Jboot的SQL指令信息报告
+     */
+    public static void disableSqlReport()
+    {
+        enableSystemOutFilter();
+        systemOutFilter.getDisabledStackTraces().add("com.jfinal.plugin.activerecord.SqlReporter.invoke:56");
+    }
+
+    /**
      * 系统输出过滤,
      * 用来防止Jboot输出Sql指令信息刷屏什么的_(:з」∠)_
      */
