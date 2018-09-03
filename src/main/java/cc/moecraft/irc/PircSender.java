@@ -35,6 +35,12 @@ public class PircSender
 
     public void send(String to, String content)
     {
+        to = to.replace(" ", "_");
+        rawSend(to, content);
+    }
+
+    public void rawSend(String to, String content)
+    {
         pircBotX.sendIRC().message(to, content);
     }
 
