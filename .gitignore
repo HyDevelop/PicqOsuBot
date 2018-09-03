@@ -3,3 +3,4 @@ cache/*
 target/*
 IcqPluginTemplate.iml
 image*.*
+src/tests/java/ignored/TestIRC.java
