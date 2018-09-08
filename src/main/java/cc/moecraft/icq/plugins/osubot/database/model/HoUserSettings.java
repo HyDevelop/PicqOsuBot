@@ -1,6 +1,8 @@
 package cc.moecraft.icq.plugins.osubot.database.model;
 
+import cc.moecraft.icq.plugins.osubot.database.ServiceInstanceManager;
 import cc.moecraft.icq.plugins.osubot.database.model.base.BaseHoUserSettings;
+import cc.moecraft.icq.plugins.osubot.database.service.impl.HoUserSettingsServiceImpl;
 import io.jboot.db.annotation.Table;
 
 /**
@@ -9,5 +11,11 @@ import io.jboot.db.annotation.Table;
 @Table(tableName = "ho_user_settings", primaryKey = "qq_id")
 public class HoUserSettings extends BaseHoUserSettings<HoUserSettings>
 {
-
+    @Override
+    public boolean saveOrUpdate()
+    {
+        HoUserSettings qqIdUserSettings = ServiceInstanceManager.get(HoUserSettingsServiceImpl.class).findByQq(getQqId());
+        if (qqIdUserSettings == null) return save();
+        else return update();
+    }
 }
