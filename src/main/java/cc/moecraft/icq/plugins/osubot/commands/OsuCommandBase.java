@@ -82,8 +82,12 @@ public abstract class OsuCommandBase implements EverywhereCommand
 
     protected void logComplete(String nick, String username, long startTime)
     {
-        Main.getInstance().getLogger().log(String.format("%s - 用户 %s 查询 %s 完毕, 耗时 %sms",
-                name.toUpperCase(), nick, username, System.currentTimeMillis() - startTime));
+        logComplete(String.format("用户 %s 查询 %s 完毕", nick, username), startTime);
+    }
+
+    protected void logComplete(String message, long startTime)
+    {
+        Main.getInstance().getLogger().log(String.format("%s - %s, 耗时 %sms", name.toUpperCase(), message, System.currentTimeMillis() - startTime));
     }
 
     protected void logComplete(String message)
