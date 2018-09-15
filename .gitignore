@@ -2,7 +2,6 @@
 cache/*
 target/*
 IcqPluginTemplate.iml
-image*.*
-src/tests/java/ignored/TestIRC.java
-src/main/resources/jboot.properties
 *.log
+src/tests/java/ignored/*
+src/main/resources/jboot.properties
