@@ -16,10 +16,10 @@ import java.util.Map;
  */
 public enum Mode
 {
-    STD(0, "STD", "Standard", "S", "Osu", "0"),
-    TAIKO(1, "Taiko", "T", "1"),
-    CTB(2, "CTB", "Catch", "CatchTheBeat", "Catch The Beat", "C", "2"),
-    MANIA(3, "Mania", "M", "3");
+    STD(0, "STD", "Standard", "S", "Osu", "0", "标准"),
+    TAIKO(1, "Taiko", "T", "Tk", "1", "太鼓"),
+    CTB(2, "CTB", "Catch", "CatchTheBeat", "Catch The Beat", "C", "2", "Fruits", "接水果"),
+    MANIA(3, "Mania", "M", "3", "下落", "骂娘");
 
     @Getter
     private int code;
