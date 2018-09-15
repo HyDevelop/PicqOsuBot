@@ -140,6 +140,21 @@ public abstract class OsuBrowser
     }
 
     /**
+     * 截图
+     * @param startX 起点的X
+     * @param startY 起点的Y
+     * @param endX 终点的X
+     * @param endY 终点的Y
+     * @param scale 放大比例
+     * @return 截图文件
+     * @throws IOException 文件保存错误
+     */
+    public File render(int startX, int startY, int endX, int endY, float scale) throws IOException
+    {
+        return render(Math.round(startX * scale), Math.round(startY * scale), Math.round(endX * scale), Math.round(endY * scale));
+    }
+
+    /**
      * 从资源获取HTML
      * @param resourceName 资源名
      * @param variables 变量对象
