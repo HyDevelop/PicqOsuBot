@@ -33,6 +33,13 @@ public class OPAWrapper
         return getUser(userParams);
     }
 
+    public static OPAUserData getUser(long userId, int mode) throws UserNotFoundException
+    {
+        OPAUserParams userParams = new OPAUserParams(String.valueOf(userId));
+        userParams.setM(String.valueOf(mode));
+        userParams.setType("id");
+        return getUser(userParams);
+    }
 
     public static OPAUserData getUser(OPAUserParams userParams) throws UserNotFoundException
     {
