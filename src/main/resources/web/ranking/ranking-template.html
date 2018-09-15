@@ -1,0 +1,132 @@
+<html>
+<head>
+    <meta http-equiv="content-type" content="text/html;charset=UTF-8">
+    <link rel="stylesheet" media="all" href="../css/osu.css">
+    <title>Rendering</title>
+
+    <style>
+        :root
+        {
+            --color-text: #777;
+            --color-text-light: #c5c5c5;
+            --color-selected: #cc5288;
+        }
+
+        .table-row, .page-tabs__tab, .ranking-page-table__heading, .paginator__page, .username
+        {
+            color: var(--color-text);
+        }
+
+        .page-tabs__tab--active, .paginator__page--current
+        {
+            color: var(--color-selected);
+        }
+
+        .qq
+        {
+            color: var(--color-text-light);
+        }
+
+        .page-tabs__tab--active
+        {
+            border-bottom-color: transparent;
+        }
+
+        .ranking-page
+        {
+            background-color: transparent;
+        }
+
+        .main
+        {
+            border-radius: 10px;
+            background: url("../images/backgrounds/page-light@2x.png");
+            margin-top: 10px;
+            margin-left: 10px;
+            max-width: 1000px;
+            padding: 15px 20px 0;
+            box-shadow: 0 1px 3px rgba(0,0,0,.25);
+
+            -webkit-transform-origin: top left;
+            -webkit-transform: scale(1.5);
+        }
+
+        .table-row
+        {
+            background: transparent;
+            border-radius: 4px;
+        }
+
+        .user-info
+        {
+            display: flex;
+        }
+
+        .username
+        {
+            font-style: italic;
+            margin-left: 10px;
+        }
+
+        .page-tabs:after
+        {
+            height: 0;
+        }
+    </style>
+</head>
+<body>
+<div class="main osu-page--rankings">
+    <div class="page-tabs">
+        <div class="page-tabs__tab">群内%{mode}排名:&nbsp;&nbsp;&nbsp;%{group.name}&nbsp;&nbsp;&nbsp;(%{group.id})</div>
+        <!--div class="page-tabs__tab page-tabs__tab--active">群内排名</div-->
+    </div>
+
+    <div class="ranking-page">
+        <table class="ranking-page-table">
+            <thead>
+            <tr>
+                <th class="ranking-page-table__heading"></th>
+                <th class="ranking-page-table__heading ranking-page-table__heading--main"></th>
+                <th class="ranking-page-table__heading">Global Rank</th>
+                <th class="ranking-page-table__heading">Performance</th>
+                <th class="ranking-page-table__heading">Accuracy</th>
+                <th class="ranking-page-table__heading">Play Count</th>
+                <th class="ranking-page-table__heading ranking-page-table__heading--grade">SS</th>
+                <th class="ranking-page-table__heading ranking-page-table__heading--grade">S</th>
+                <th class="ranking-page-table__heading ranking-page-table__heading--grade">A</th>
+            </tr>
+            </thead>
+            <tbody>
+            <!--tr class="table-row">
+                <td class="ranking-page-table__column ranking-page-table__column--rank">#%{group.rank} (#%{rank})</td>
+                <td class="ranking-page-table__column">
+                    <div class="user-info">
+                        <span class="flag-country" style="background-image: url('../images/flags/%{country}.png');"></span>
+                        <span class="username">%{name} (%{qq})</span>
+                    </div>
+                </td>
+                <td class="ranking-page-table__column">%{pp}</td>
+                <td class="ranking-page-table__column">%{acc}%</td>
+                <td class="ranking-page-table__column">%{pc}</td>
+                <td class="ranking-page-table__column">%{ss}</td>
+                <td class="ranking-page-table__column">%{s}</td>
+                <td class="ranking-page-table__column">%{a}</td>
+            </tr-->
+            %{entries}
+            </tbody>
+        </table>
+    </div>
+
+    <div class="paginator ">
+        <span class="paginator__page">‹</span>
+
+        %{pages}
+
+        <!--span class="paginator__page paginator__page--current">1</span-->
+        <!--span class="paginator__page">2</span-->
+
+        <span class="paginator__page">›</span>
+    </div>
+</div>
+</body>
+</html>
