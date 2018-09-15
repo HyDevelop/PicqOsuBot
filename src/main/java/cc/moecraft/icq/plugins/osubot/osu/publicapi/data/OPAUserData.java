@@ -14,7 +14,7 @@ import java.util.List;
  */
 @EqualsAndHashCode(callSuper = true)
 @Data @Builder @NoArgsConstructor @AllArgsConstructor
-public class OPAUserData extends OPADataBase
+public class OPAUserData extends OPADataBase implements Comparable<OPAUserData>
 {
     @SerializedName("user_id")
     @Expose
@@ -95,6 +95,12 @@ public class OPAUserData extends OPADataBase
     @SerializedName("events")
     @Expose
     private List<Event> events = null;
+
+    @Override
+    public int compareTo(OPAUserData other)
+    {
+        return (int) (other.getPpRaw() - getPpRaw());
+    }
 
     @Data @Builder @AllArgsConstructor @NoArgsConstructor
     private static class Event
