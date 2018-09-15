@@ -26,7 +26,7 @@ public class CommandHelp implements EverywhereCommand
     public String run(EventMessage eventMessage, User user, String s, ArrayList<String> arrayList)
     {
         Main.getInstance().getLogger().log("HELP - 用户 " + user.getInfo().getNickname() + " 查询了帮助.");
-        File helpFile = ResourceFileUtils.getCachedResourceFile("help/Ver1.3-crop.jpg");
+        File helpFile = ResourceFileUtils.getCachedResourceFile("help/Ver1.4-crop.jpg");
         if (helpFile == null) return null;
         return new ComponentImage("file://" + helpFile.getAbsolutePath()).toString();
     }
