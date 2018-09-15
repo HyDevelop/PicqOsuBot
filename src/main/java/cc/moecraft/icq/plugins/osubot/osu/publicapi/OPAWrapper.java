@@ -24,6 +24,14 @@ import java.util.ArrayList;
 public class OPAWrapper
 {
     // 用户
+    public static OPAUserData getUser(String username, int mode) throws UserNotFoundException
+    {
+        username = username.replace(" ", "%20");
+        OPAUserParams userParams = new OPAUserParams(username);
+        userParams.setM(String.valueOf(mode));
+        userParams.setType("string");
+        return getUser(userParams);
+    }
 
 
     public static OPAUserData getUser(OPAUserParams userParams) throws UserNotFoundException
