@@ -34,4 +34,8 @@ import java.util.Collections;
  */
 public class RankingBrowser extends OsuBrowser
 {
+    public RankingBrowser()
+    {
+        super(Math.round(1030 * scale), Math.round(848 * scale));
+    }
 }
