@@ -35,8 +35,15 @@ import java.util.Collections;
 public class RankingBrowser extends OsuBrowser
 {
     public static final float scale = 1.5f;
+
     public RankingBrowser()
     {
         super(Math.round(1030 * scale), Math.round(848 * scale));
+    }
+
+    @Override
+    public String name()
+    {
+        return "ranking";
     }
 }
