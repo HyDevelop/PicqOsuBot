@@ -66,6 +66,13 @@ public class CommandSetId extends OsuCommandBase
             String username = ArrayUtils.getTheRestArgsAsString(args, 0);
             OWAUserData userData = OWAUtils.getUserData(username);
 
+            // 验证数据库内是否已存在QQ id
+            HoUserSettings qqIdUserSettings = ServiceInstanceManager.get(HoUserSettingsServiceImpl.class).findByQq(user.getId());
+            if (qqIdUserSettings != null)
+            {
+                return Messages.qqIdAlreadyVerified(qqIdUserSettings);
+            }
+
             // 验证数据库内是否已存在osu id
             HoUserSettings osuIdUserSettings = ServiceInstanceManager.get(HoUserSettingsServiceImpl.class).findByOsu(userData.getId());
             if (osuIdUserSettings != null)
@@ -73,13 +80,6 @@ public class CommandSetId extends OsuCommandBase
                 if (osuIdUserSettings.getVerificationState().equals(VerificationStates.VERIFIED)) return Messages.osuIdAlreadyVerified(osuIdUserSettings);
                 if (isTimeValid(osuIdUserSettings)) return Messages.requestedAndValidTime();
                 return Messages.requestedButInvalidTime(osuIdUserSettings, command);
-            }
-
-            // 验证数据库内是否已存在QQ id
-            HoUserSettings qqIdUserSettings = ServiceInstanceManager.get(HoUserSettingsServiceImpl.class).findByQq(user.getId());
-            if (qqIdUserSettings != null)
-            {
-                return Messages.qqIdAlreadyVerified(qqIdUserSettings);
             }
 
             // 数据库内不存在
