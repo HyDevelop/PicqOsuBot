@@ -96,7 +96,7 @@ public class CommandSetId extends OsuCommandBase
             // 放入缓存
             logComplete("用户 " + user.getInfo().getNickname() + " 请求了SetID.");
             this.confirmMap.put(user.getId(), new PendingDataSet(user, userData, userSettings, currentTime));
-            return Messages.confirmNeeded(userSettings);
+            return Messages.confirmNeeded(userSettings, command);
         }
     }
 
@@ -160,13 +160,13 @@ public class CommandSetId extends OsuCommandBase
                     .toString();
         }
 
-        private static String confirmNeeded(HoUserSettings userSettings)
+        private static String confirmNeeded(HoUserSettings userSettings, String command)
         {
             return new MessageBuilder()
                     .add("注意: 一个QQ只能申请一次绑定,").newLine()
                     .add("").add(userSettings.getOsuName()).add("必须是你的真实ID哦!").newLine()
                     .add("还有必须确认前登录游戏才能收到验证码!").newLine()
-                    .add("请输入 /bind confirm 确认")
+                    .add("请输入 -").add(command).add(" confirm 确认")
                     .toString();
         }
 
