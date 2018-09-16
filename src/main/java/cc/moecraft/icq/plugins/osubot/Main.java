@@ -6,10 +6,8 @@ import cc.moecraft.icq.pluginmanager.plugin.IcqPlugin;
 import cc.moecraft.icq.plugins.osubot.browser.OsuBrowserManager;
 import cc.moecraft.icq.plugins.osubot.commands.irc.CommandIrcServerInfo;
 import cc.moecraft.icq.plugins.osubot.commands.irc.CommandIrcStatus;
-import cc.moecraft.icq.plugins.osubot.commands.osu.CommandHelp;
-import cc.moecraft.icq.plugins.osubot.commands.osu.CommandRecent;
-import cc.moecraft.icq.plugins.osubot.commands.osu.CommandSkills;
-import cc.moecraft.icq.plugins.osubot.commands.osu.CommandStats;
+import cc.moecraft.icq.plugins.osubot.commands.osu.*;
+import cc.moecraft.icq.plugins.osubot.commands.setid.CommandForceSetId;
 import cc.moecraft.icq.plugins.osubot.commands.setid.CommandSetId;
 import cc.moecraft.icq.plugins.osubot.commands.setid.CommandVerify;
 import cc.moecraft.icq.plugins.osubot.utils.JbootUtils;
@@ -116,6 +114,7 @@ public class Main extends IcqPlugin
 
                         new CommandSetId(),
                         new CommandVerify(),
+                        new CommandForceSetId(),
 
                         new CommandIrcServerInfo(),
                         new CommandIrcStatus()
