@@ -78,7 +78,7 @@ public class CommandSetId extends OsuCommandBase
             if (osuIdUserSettings != null)
             {
                 if (osuIdUserSettings.getVerificationState().equals(VerificationStates.VERIFIED)) return Messages.osuIdAlreadyVerified(osuIdUserSettings);
-                if (isTimeValid(osuIdUserSettings)) return Messages.requestedAndValidTime();
+                if (isTimeValid(osuIdUserSettings)) return Messages.requestedAndValidTime(command);
                 return Messages.requestedButInvalidTime(osuIdUserSettings, command);
             }
 
@@ -152,11 +152,11 @@ public class CommandSetId extends OsuCommandBase
                     .toString();
         }
 
-        private static String requestedAndValidTime()
+        private static String requestedAndValidTime(String command)
         {
             return new MessageBuilder()
                     .add("已经输过setid啦... 看看上面那一段!").newLine()
-                    .add("如果已经登录进游戏了就/setid confirm好啦w")
+                    .add("如果已经登录进游戏了就 -").add(command).add(" confirm好啦w")
                     .toString();
         }
 
