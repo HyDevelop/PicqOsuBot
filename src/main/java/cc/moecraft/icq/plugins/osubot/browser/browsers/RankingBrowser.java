@@ -41,6 +41,10 @@ public class RankingBrowser extends OsuBrowser
         super(Math.round(1030 * scale), Math.round(848 * scale));
     }
 
+    public File render(Group group, ArrayList<UserData> userDataList, int modeCode, PageInfo page) throws IOException
+    {
+    }
+
     @Override
     public String name()
     {
