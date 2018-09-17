@@ -46,4 +46,13 @@ public class RankingBrowser extends OsuBrowser
     {
         return "ranking";
     }
+
+    @Data @AllArgsConstructor
+    private static class PageInfo
+    {
+        private int max;
+        private int current;
+        private int start;
+        private int end;
+    }
 }
