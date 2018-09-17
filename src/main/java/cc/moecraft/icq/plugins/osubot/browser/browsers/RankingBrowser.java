@@ -55,4 +55,17 @@ public class RankingBrowser extends OsuBrowser
         private int start;
         private int end;
     }
+
+    @Data @AllArgsConstructor
+    private static class UserData implements Comparable<UserData>
+    {
+        private OPAUserData osu;
+        private RGroupMemberInfo qq;
+
+        @Override
+        public int compareTo(UserData o)
+        {
+            return osu.compareTo(o.osu);
+        }
+    }
 }
