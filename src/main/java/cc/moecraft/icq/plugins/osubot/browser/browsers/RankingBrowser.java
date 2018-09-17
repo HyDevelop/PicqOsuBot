@@ -44,6 +44,7 @@ public class RankingBrowser extends OsuBrowser
     public File render(Group group, ArrayList<UserData> userDataList, int modeCode, PageInfo page) throws IOException
     {
         Mode mode = Mode.parse(modeCode);
+        String mainHtml = getHtml("web/ranking/ranking-template.html");
     }
 
     @Override
