@@ -51,6 +51,9 @@ public class RankingBrowser extends OsuBrowser
         // 获取用户
         for (int i = 0; i < userDataList.size(); i++)
         {
+            UserData userData = userDataList.get(i);
+            OPAUserData osu = userData.osu;
+            RGroupMemberInfo qq = userData.qq;
         }
     }
 
