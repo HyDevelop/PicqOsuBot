@@ -67,6 +67,7 @@ public class RankingBrowser extends OsuBrowser
                     "s", StringUtils.toNumberWithComma(osu.getCountRankS() + osu.getCountRankSh()),
                     "a", StringUtils.toNumberWithComma(osu.getCountRankA())
             );
+            entries.append(html);
         }
     }
 
