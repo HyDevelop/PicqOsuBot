@@ -45,6 +45,9 @@ public class RankingBrowser extends OsuBrowser
     {
         Mode mode = Mode.parse(modeCode);
         String mainHtml = getHtml("web/ranking/ranking-template.html");
+        StringBuilder entries = new StringBuilder();
+        StringBuilder pages = new StringBuilder();
+
     }
 
     @Override
