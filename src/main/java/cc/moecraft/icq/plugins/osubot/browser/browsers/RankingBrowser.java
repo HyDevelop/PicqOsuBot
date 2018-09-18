@@ -54,6 +54,19 @@ public class RankingBrowser extends OsuBrowser
             UserData userData = userDataList.get(i);
             OPAUserData osu = userData.osu;
             RGroupMemberInfo qq = userData.qq;
+            String html = StringUtils.replaceVariables(getHtml("web/ranking/ranking-entry.html"), "temp", "temp",
+                    "rank", osu.getPpRank(),
+                    "group.rank", page.getStart() + i + 1,
+                    "name", osu.getUsername(),
+                    "country", osu.getCountry(),
+                    "qq", qq.getUserId(),
+                    "acc", MathUtils.round(osu.getAccuracy(), 1),
+                    "pp", MathUtils.round(osu.getPpRaw(), 1),
+                    "pc", StringUtils.toNumberWithComma(osu.getPlayCount()),
+                    "ss", StringUtils.toNumberWithComma(osu.getCountRankSs() + osu.getCountRankSsh()),
+                    "s", StringUtils.toNumberWithComma(osu.getCountRankS() + osu.getCountRankSh()),
+                    "a", StringUtils.toNumberWithComma(osu.getCountRankA())
+            );
         }
     }
 
