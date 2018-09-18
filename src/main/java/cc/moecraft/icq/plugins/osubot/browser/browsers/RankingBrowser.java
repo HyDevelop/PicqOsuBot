@@ -48,6 +48,10 @@ public class RankingBrowser extends OsuBrowser
         StringBuilder entries = new StringBuilder();
         StringBuilder pages = new StringBuilder();
 
+        // 获取用户
+        for (int i = 0; i < userDataList.size(); i++)
+        {
+        }
     }
 
     @Override
