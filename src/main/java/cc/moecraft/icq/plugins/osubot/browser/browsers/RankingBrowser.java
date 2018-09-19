@@ -85,6 +85,10 @@ public class RankingBrowser extends OsuBrowser
                 "entries", entries,
                 "pages", pages
         );
+
+        loadHtml(mainHtml);
+        sleep(1000);
+        setRunning(false);
     }
 
     @Override
