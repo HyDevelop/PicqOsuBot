@@ -89,6 +89,7 @@ public class RankingBrowser extends OsuBrowser
         loadHtml(mainHtml);
         sleep(1000);
         setRunning(false);
+        return render(0, 0, 1016, 142 + userDataList.size() * 35, scale); //TODO: test dis
     }
 
     @Override
