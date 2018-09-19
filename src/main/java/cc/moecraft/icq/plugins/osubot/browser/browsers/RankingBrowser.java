@@ -69,6 +69,14 @@ public class RankingBrowser extends OsuBrowser
             );
             entries.append(html);
         }
+
+        // 获取翻页
+        for (int i = 1; i <= page.max; i++)
+        {
+            if (page.current > i && page.current - i < pageDisplayFront) pages.append(getPageHtml(i, false));
+            else if (page.current < i && i - page.current < pageDisplayEnd) pages.append(getPageHtml(i, false));
+            else pages.append(getPageHtml(i, true));
+        }
     }
 
     @Override
