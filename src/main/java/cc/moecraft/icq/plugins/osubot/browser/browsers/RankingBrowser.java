@@ -98,4 +98,9 @@ public class RankingBrowser extends OsuBrowser
             return osu.compareTo(o.osu);
         }
     }
+
+    private String getPageHtml(int page, boolean active)
+    {
+        return (active ? "<span class=\"paginator__page paginator__page--current\">" : "<span class=\"paginator__page\">") + page + "</span>";
+    }
 }
