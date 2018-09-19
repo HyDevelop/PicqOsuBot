@@ -35,6 +35,9 @@ import java.util.Collections;
 public class RankingBrowser extends OsuBrowser
 {
     public static final float scale = 1.5f;
+    public static final int entriesPerPage = 20;
+    public static final int pageDisplayFront = 3;
+    public static final int pageDisplayEnd = 3;
 
     public RankingBrowser()
     {
