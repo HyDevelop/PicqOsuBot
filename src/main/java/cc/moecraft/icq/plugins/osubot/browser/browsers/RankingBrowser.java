@@ -44,6 +44,10 @@ public class RankingBrowser extends OsuBrowser
         super(Math.round(1030 * scale), Math.round(848 * scale));
     }
 
+    public File render(Group group, IcqHttpApi api, int mode, int page) throws IOException
+    {
+    }
+
     public File render(Group group, ArrayList<UserData> userDataList, int modeCode, PageInfo page) throws IOException
     {
         Mode mode = Mode.parse(modeCode);
