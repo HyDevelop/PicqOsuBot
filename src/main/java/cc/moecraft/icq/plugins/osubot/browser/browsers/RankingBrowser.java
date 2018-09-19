@@ -77,6 +77,14 @@ public class RankingBrowser extends OsuBrowser
             else if (page.current < i && i - page.current < pageDisplayEnd) pages.append(getPageHtml(i, false));
             else pages.append(getPageHtml(i, true));
         }
+
+        mainHtml = StringUtils.replaceVariables(mainHtml, "temp", "temp",
+                "mode", mode.getName(),
+                "group.name", group.getInfo().getGroupName(),
+                "group.id", group.getId(),
+                "entries", entries,
+                "pages", pages
+        );
     }
 
     @Override
