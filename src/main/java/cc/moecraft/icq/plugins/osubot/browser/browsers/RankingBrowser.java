@@ -52,6 +52,8 @@ public class RankingBrowser extends OsuBrowser
         // 获取绑定了ID的人的用户信息
         for (RGroupMemberInfo user : members.getData())
         {
+            HoUserSettings bind = ServiceInstanceManager.get(HoUserSettingsServiceImpl.class).findByQq(user.getUserId());
+            if (bind == null) continue;
         }
 
     }
