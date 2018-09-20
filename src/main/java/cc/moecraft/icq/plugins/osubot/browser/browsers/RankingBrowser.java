@@ -47,6 +47,8 @@ public class RankingBrowser extends OsuBrowser
     public File render(Group group, IcqHttpApi api, int mode, int page) throws IOException
     {
         ReturnListData<RGroupMemberInfo> members = api.getGroupMemberList(group.getId());
+        ArrayList<UserData> userDataList = new ArrayList<>();
+
     }
 
     public File render(Group group, ArrayList<UserData> userDataList, int modeCode, PageInfo page) throws IOException
