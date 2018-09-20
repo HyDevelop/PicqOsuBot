@@ -55,6 +55,11 @@ public class RankingBrowser extends OsuBrowser
             HoUserSettings bind = ServiceInstanceManager.get(HoUserSettingsServiceImpl.class).findByQq(user.getUserId());
             if (bind == null) continue;
             if (!bind.getVerificationState().equals(VerificationStates.VERIFIED)) continue;
+            try
+            {
+                userDataList.add(new UserData(OPAWrapper.getUser(bind.getOsuId(), mode), user));
+            }
+            catch (UserNotFoundException ignored) {} // 被ban了
         }
 
     }
