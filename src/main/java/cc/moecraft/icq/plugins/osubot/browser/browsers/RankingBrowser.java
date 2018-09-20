@@ -49,6 +49,11 @@ public class RankingBrowser extends OsuBrowser
         ReturnListData<RGroupMemberInfo> members = api.getGroupMemberList(group.getId());
         ArrayList<UserData> userDataList = new ArrayList<>();
 
+        // 获取绑定了ID的人的用户信息
+        for (RGroupMemberInfo user : members.getData())
+        {
+        }
+
     }
 
     public File render(Group group, ArrayList<UserData> userDataList, int modeCode, PageInfo page) throws IOException
