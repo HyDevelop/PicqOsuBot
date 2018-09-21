@@ -62,6 +62,9 @@ public class RankingBrowser extends OsuBrowser
             catch (UserNotFoundException ignored) {} // 被ban了
         }
 
+        // 按PP排序
+        Collections.sort(userDataList);
+        ArrayList<UserData> userDataListThisPage = new ArrayList<>();
     }
 
     public File render(Group group, ArrayList<UserData> userDataList, int modeCode, PageInfo page) throws IOException
