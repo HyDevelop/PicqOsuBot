@@ -110,6 +110,7 @@ public class Main extends IcqPlugin
                         new CommandStats(),
                         new CommandSkills(),
                         new CommandRecent(),
+                        new CommandRanking(),
                         new CommandHelp(),
 
                         new CommandSetId(),
