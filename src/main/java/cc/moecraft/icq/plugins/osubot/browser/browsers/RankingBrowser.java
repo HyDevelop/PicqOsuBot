@@ -81,6 +81,7 @@ public class RankingBrowser extends OsuBrowser
 
         PageInfo pageInfo = new PageInfo(maxPage, page, pageStartingEntry, pageEndingEntry);
 
+        return render(group, userDataListThisPage, mode, pageInfo);
     }
 
     public File render(Group group, ArrayList<UserData> userDataList, int modeCode, PageInfo page) throws IOException
