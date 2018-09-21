@@ -73,6 +73,11 @@ public class RankingBrowser extends OsuBrowser
         if (page > maxPage) page = maxPage;
         int pageEndingEntry = page * entriesPerPage;
         int pageStartingEntry = pageEndingEntry - entriesPerPage;
+        for (int i = pageStartingEntry; i < pageEndingEntry; i++)
+        {
+            if (i >= userDataList.size()) break;
+            userDataListThisPage.add(userDataList.get(i));
+        }
     }
 
     public File render(Group group, ArrayList<UserData> userDataList, int modeCode, PageInfo page) throws IOException
