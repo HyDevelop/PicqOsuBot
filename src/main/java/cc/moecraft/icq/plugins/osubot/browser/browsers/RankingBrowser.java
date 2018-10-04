@@ -67,8 +67,8 @@ public class RankingBrowser extends OsuBrowser
         ArrayList<UserData> userDataListThisPage = new ArrayList<>();
 
         // 分页
-        int maxPage = userDataList.size() / entriesPerPage;
-        if (maxPage < 1) maxPage = 1;
+        // 20/20+1 = 2, 20/21+1 = 1
+        int maxPage = userDataList.size() / (entriesPerPage + 1) + 1;
         if (page < 1) page = 1;
         if (page > maxPage) page = maxPage;
         int pageEndingEntry = page * entriesPerPage;
