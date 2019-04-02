@@ -90,7 +90,7 @@ public class RecentBrowser extends OsuBrowser
         loadHtml(html);
         sleep(1000);
         setRunning(false);
-        return render(0, 0, 1142, 142); //TODO: change dis
+        return render(0, 0, 1142, 142); //TODO: change this
     }
 
     @Override

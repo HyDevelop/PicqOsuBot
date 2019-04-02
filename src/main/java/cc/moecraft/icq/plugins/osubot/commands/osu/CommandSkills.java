@@ -31,6 +31,8 @@ public class CommandSkills extends OsuCommandBase
     @Override
     public String runOsu(EventMessage event, User user, String command, ArrayList<String> args) throws Exception
     {
+        if (Main.disableStatsSkills) return "";
+        
         long startTime = System.currentTimeMillis();
 
         String username = getDatabasedUsername(args, 0, user);
