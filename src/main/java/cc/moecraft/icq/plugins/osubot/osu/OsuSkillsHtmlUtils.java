@@ -25,7 +25,7 @@ public class OsuSkillsHtmlUtils
     {
         playerName = playerName.replace(" ", "%20");
 
-        String html = HttpUtil.downloadString("http://osuskills.tk/user/" + playerName, "utf-8");
+        String html = HttpUtil.downloadString("http://osuskills.com/user/" + playerName, "utf-8");
         Matcher matcher = pattern.matcher(html);
 
         int[] result = new int[6];
