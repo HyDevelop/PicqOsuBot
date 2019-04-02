@@ -31,6 +31,9 @@ public class Main extends IcqPlugin
 {
     public static final String CONTACT_INFO = "qq:565656";
 
+    // Stats和Skills维护
+    public static boolean disableStatsSkills;
+
     @Getter
     private static OsuBrowserManager browserManager;
 
@@ -53,6 +56,7 @@ public class Main extends IcqPlugin
                 getConfig().getString("IRC.Username"),
                 getConfig().getString("IRC.Password"));
 
+        disableStatsSkills = getConfig().getBoolean("Misc.DisableStatSkills");
         init(getLogger());
     }
 

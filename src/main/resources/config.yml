@@ -14,6 +14,9 @@ Encoding:
   Force: true
   Encoding: utf-8
 
+Misc:
+  DisableWebAPI: false
+
 #-----------------------------------------------#
 # Database section is deprecated.               #
 # You'll have to configure your database in     #

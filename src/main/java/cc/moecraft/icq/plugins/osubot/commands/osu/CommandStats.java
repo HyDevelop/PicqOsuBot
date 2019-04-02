@@ -5,14 +5,11 @@ import cc.moecraft.icq.event.events.message.EventMessage;
 import cc.moecraft.icq.plugins.osubot.Main;
 import cc.moecraft.icq.plugins.osubot.browser.browsers.StatsBrowser;
 import cc.moecraft.icq.plugins.osubot.commands.OsuCommandBase;
-import cc.moecraft.icq.plugins.osubot.osu.exceptions.UserNotFoundException;
 import cc.moecraft.icq.plugins.osubot.osu.webapi.OWAUserData;
 import cc.moecraft.icq.plugins.osubot.osu.webapi.OWAUtils;
 import cc.moecraft.icq.user.User;
-import cc.moecraft.utils.ArrayUtils;
 
 import java.io.File;
-import java.io.IOException;
 import java.util.ArrayList;
 
 /**
@@ -33,6 +30,8 @@ public class CommandStats extends OsuCommandBase
     @Override
     public String runOsu(EventMessage event, User user, String command, ArrayList<String> args) throws Exception
     {
+        if (Main.disableStatsSkills) return "";
+
         long startTime = System.currentTimeMillis();
 
         String username = getDatabasedUsername(args, 0, user);
@@ -56,6 +55,6 @@ public class CommandStats extends OsuCommandBase
     @Override
     public CommandProperties properties()
     {
-        return new CommandProperties("stats", "me", "home", "stat");
+        return new CommandProperties("stats", "home", "stat");
     }
 }
